@@ -1,0 +1,7 @@
+{
+  "name": "MyFutsal",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

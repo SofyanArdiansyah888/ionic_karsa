@@ -1,0 +1,162 @@
+<ion-content>
+  <div>
+    <ion-icon class="backclik_black" (click)="backClick()" src="assets/icon/back.svg"></ion-icon>
+    <div class="hw-slide">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <div class="hw-section-slide">
+        <!-- SLIDER  -->
+        <ion-slides  autoplay="5000" loop="true" speed="300" pager="true" [options]="slideOptsOne" class="produk slider-atas" #homeSlide>
+          <ion-slide>
+            <img src="assets/olahraga/psg.jpg">
+          </ion-slide>
+          <ion-slide>
+            <img src="assets/msport/global/wall2.jpg">
+          </ion-slide>
+          <ion-slide>
+            <img src="assets/msport/global/soccer-ball.jpg">
+          </ion-slide>
+          <ion-slide>
+            <img src="assets/msport/global/soccer-ball.jpg">
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kategori Olahraga-->
+  <div style="width: 100%;">
+    <ion-item lines="none" class="header-title">
+      <p class="title" style="margin: 20px 0 0px 0;">Miniso Area</p>
+    </ion-item>
+    <ion-icon class="hw-star" src="assets/olahraga/star-solid.svg"></ion-icon>
+    <p class="title" style="margin: 2px 0px 5px 40px; font-size: 16px;">
+      5.0 - Kota Makassar
+    </p>
+    <p style="margin: 0;">
+      <span style="padding: 0 20px;">Sport center Mini Soccer terbaik yang berada di tengah kota Makassar.</span>
+    </p>
+  </div>
+<div class="hw-empty-space"></div>
+
+
+<!-- Jam Operasional -->
+<div style="width: 100%;">
+  <ion-item style="margin-top: -10px;" lines="none" class="header-title">
+    <p class="title" style="margin: 0px 0 0px 0; color: black;">
+      Jam Operasional
+    </p>
+  </ion-item>
+  <ion-item class="waktu" lines="none">
+  <ion-col size="6"> 
+    <p class="hw-waktu">Senin-Ahad</p>
+  </ion-col>
+  <ion-col size="6"> 
+    <p class="hw-waktu teks-kanan">06:00 - 22:00</p>
+  </ion-col>
+  </ion-item>
+</div>
+<div class="hw-empty-space"></div>
+
+<!-- Fasilitas -->
+<div style="width: 100%;">
+  <ion-item lines="none" class="header-title">
+    <p class="title" style="margin: 0px 0 25px 0; color: black;">
+      Fasilitas
+    </p>
+  </ion-item>
+  <ion-item class="fasilitas" lines="none">
+    <ion-col class="kiri" size="6"> 
+      <div class="isi-fasilitas">
+        <ion-icon src="assets/olahraga/air.svg"></ion-icon><span>Free Air Gelas</span>
+      </div>
+      <div class="isi-fasilitas">
+        <ion-icon src="assets/olahraga/mobil.svg"></ion-icon><span>Parkir Mobil</span>
+      </div>
+      <div class="isi-fasilitas">
+        <ion-icon src="assets/olahraga/motor.svg"></ion-icon><span>Parkir Motor</span>
+      </div>
+      <div class="isi-fasilitas">
+        <ion-icon src="assets/olahraga/musholla.svg"></ion-icon><span>Musholla</span>
+      </div>
+    </ion-col>
+
+    <ion-col class="kanan" size="6"> 
+      <div class="isi-fasilitas">
+        <ion-icon src="assets/olahraga/toilet.svg"></ion-icon><span>Toilet</span>
+      </div>
+      <div class="isi-fasilitas">
+        <ion-icon src="assets/olahraga/shower.svg"></ion-icon><span>Shower</span>
+      </div>
+      <div class="isi-fasilitas">
+        <ion-icon src="assets/olahraga/loker.svg"></ion-icon><span>Ruang Ganti</span>
+      </div>
+      <div class="isi-fasilitas">
+        <ion-icon src="assets/olahraga/tribun.svg"></ion-icon><span>Tribun Penonton</span>
+      </div>
+    </ion-col>
+    </ion-item>
+</div>
+<div class="hw-empty-space"></div>
+
+<!--Lokasi-->
+<div style="width: 100%;">
+  <ion-item lines="none" class="header-title">
+    <p class="title" style="margin: 0px 0 25px 0; color: black;">
+      Lokasi
+    </p>
+  </ion-item>
+  <ion-item class="lokasi" lines="none">
+    <ion-col size="9">
+      <span>Jl. Hertasning Baru no.23 Mappala, Kec. Rappocini, Kota Makassar, Sulawesi Selatan</span>
+    </ion-col>
+    <ion-col size="3">
+      <span class="hw-btn-view">Lihat</span>
+    </ion-col>
+  </ion-item>
+  <ion-item class="hw-map" lines="none">
+    <img src="assets/olahraga/makassar-Google-map.png">
+  </ion-item>
+  </div>
+  <div class="hw-empty-space"></div>
+
+  <!--Aturan& Kebijakan-->
+  <div style="width: 100%;">
+    <ion-item class="kebijakan" lines="none">
+      <ion-col size="1">
+        <ion-icon src="assets/olahraga/kebijakan.svg"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <p>Aturan & Kebijakan</p>
+        <ion-icon style="position:absolute ; right:0px; top: 15px;" (click)="kebijakanna()" src="assets/olahraga/chevron-left.svg"></ion-icon>
+      </ion-col>
+    </ion-item>
+  
+  </div>
+
+</ion-content>
+
+<!--Footer-->
+<ion-footer>
+  <ion-item class="harga" lines="none">
+    <ion-col size="6">
+      <p class="teks">Harga mulai</p>
+    </ion-col>
+    <ion-col style="text-align:right;" size="6">
+      <p>Rp. 350.000<span>/sesi</span></p>
+    </ion-col>
+
+  </ion-item>
+
+  <ion-item class="hw-tombol" lines="none">
+  <ion-button class="pilih">
+    <span>
+      <a style="color:#fff;" href="/olahraga/pilih">
+        Pilih Lapangan
+      </a>
+    </span>
+  </ion-button>
+</ion-item>
+
+</ion-footer>

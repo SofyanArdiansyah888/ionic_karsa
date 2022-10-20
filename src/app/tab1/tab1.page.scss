@@ -93,10 +93,10 @@ ion-header {
 
 .menu-atas {
   margin-bottom: 12px;
-  min-height: 133px;
+  min-height: 105px;
 
   .scrollable .kotak .scroll-col {
-    padding: 0 16px 0 0;
+    padding: 0 35px 0 0;
   }
 }
 
@@ -119,25 +119,28 @@ ion-header {
       padding: 0 20px 0 0;
       
       .hw_menu-oder {
-        background: #e9e9e9 !important;
+        background: #FFC69A !important;
+      }
+
+      .hw-mnfutsal{
+        background: #FEEBC6 !important;
       }
 
       .hw_menucepat {
-        width: 81px;
-        height: 81px;
+        width: 61px;
+        height: 61px;
         background: #f9929f;
-        border-radius: 20px;
+        border-radius: 100%;
         position: relative;
 
 
         img {
           object-fit: cover;
-          object-position: center;
-          max-height: 50px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+    object-position: center;
+    position: absolute;
+    top: 55%;
+    right: -77%;
+    transform: translate(-50%, -50%);
         }
 
         ion-badge {
@@ -160,7 +163,9 @@ ion-header {
       }
 
       .title-produk {
-        font-size: 12px
+        font-size: 12px;
+        color: #656565;
+    opacity: 0.8;
       }
     }
   }
@@ -224,7 +229,7 @@ a {
     img {
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
-      height: 120px;
+      height: 90px;
       width: 100%;
       object-fit: cover;
       object-position: top center;
@@ -238,14 +243,21 @@ a {
       border-bottom-right-radius: 20px;
 
       .diskon {
-        max-width: 100% !important;
-        padding: 10px 0 16px 0;
-        line-height: 1.3;
+        line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    color: #656565;
 
         span {
           font-family: 'Metropolis-Bold'
         }
       }
+
 
       img {
         width: 27px;
@@ -256,22 +268,49 @@ a {
       }
     }
 
+    p.fitur-tdktau {
+      background: #f55869;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    line-height: 2.5;
+    padding-left: 4px;
+    color: #fff;
+    font-size: 10px;
+    margin-top: -10px;
+  }
+
   }
 
   .hw_berita {
     .judul {
       max-width: 100%;
-      font-size: 10px;
-      line-height: 1.5;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      margin-top: 10px;
-      margin-bottom: 16px;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    color: #656565;
     }
   }
 
 }
 
+.hw-chat {
+  position: absolute;
+  right: 25px;
+  p {
+    color: #F15162;
+    margin: 0 auto;
+    text-align: center;
+}
+img {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+}

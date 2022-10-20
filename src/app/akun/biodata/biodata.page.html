@@ -1,0 +1,89 @@
+<ion-content>
+  <ion-item lines="none" class="header-title" style="margin-bottom: -10px;">
+    <ion-col size="1">
+      <ion-icon class="backclik_black" (click)="backClick()" src="assets/icon/chevron-left.svg"></ion-icon>
+  </ion-col>
+  <ion-col size="11">
+    <p class="title">Biodata Diri</p>
+    <p style="margin: -11px 0 0px 10px;">
+      <span style="padding-left: 10px;">Silahkan input data diri kamu</span>
+    </p>
+  </ion-col>
+  </ion-item>
+
+    <div class="frame-default">
+    <form class="mid" #form="ngForm" (ngSubmit)="sendOtp(form)">
+      <ion-grid>
+        <ion-row color="primary">
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+            <div class="hw-form-daftar">
+            <ion-item lines="none">
+              <ion-label position="floating" mode="ios">Nama Lengkap</ion-label>
+              <ion-input enterkeyhint="go" type="text" name="nama"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label position="floating" mode="ios">Tanggal Lahir</ion-label>
+              <ion-input enterkeyhint="go" type="datetime-local" name="lahir"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label position="floating" mode="ios">Nomor Handphone</ion-label>
+              <ion-input enterkeyhint="go" type="number" name="telepon"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label position="floating" mode="ios">Email</ion-label>
+              <ion-input enterkeyhint="go" type="email" name="email"></ion-input>
+            </ion-item>
+
+            <div style="width:100% ;">
+              <ion-label>Jenis Kelamin</ion-label>
+              <ion-radio-group value="">
+                <ion-radio class="hw-pria" value="pria"></ion-radio>
+                <ion-radio class="hw-wanita" value="wanita"></ion-radio>
+              </ion-radio-group>
+            </div>
+              
+            
+              <div class="hw-tambahan">
+                <div class="col2 left">
+                  <ion-item lines="none">
+                  <ion-label position="floating" mode="ios">Tinggi</ion-label>
+                <ion-input enterkeyhint="go" type="number" name="tinggi"></ion-input>
+              </ion-item>
+                </div>
+                <div class="col2 right">
+                  <ion-item lines="none">
+                  <ion-label position="floating" mode="ios">Berat</ion-label>
+                <ion-input enterkeyhint="go" type="text" name="berat"></ion-input>
+              </ion-item>
+                </div>
+              </div>
+  
+
+            </div>
+          </ion-col>
+        </ion-row>
+
+
+
+        <ion-row>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div style="padding: 0px 20px 20px 20px; display: block;">
+  <ion-col>
+    <div class="ion-text-center googlebutton">
+      <ion-button type="submit" [disabled]="form.invalid" expand="block" class="flex-margin" size="default">
+        <span>Simpan Perubahan</span>
+      </ion-button>
+    </div>
+  </ion-col>
+</div>
+</ion-footer>

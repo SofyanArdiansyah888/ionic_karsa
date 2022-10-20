@@ -1,11 +1,71 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content fullscreen="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-<ion-content [fullscreen]="true">
-  test
+<div style="width: 100%; margin-bottom: 32px;">
+  <ion-item lines="none" class="header-title">
+    <p class="title" style="margin: 20px 0 0px 0;">Riwayat Transaksi</p>
+  </ion-item>
+  <p style="margin: 0;">
+    <span style="padding: 0 20px;">Lorem ipsum dolor amet lagela estagle mangle</span>
+  </p>
+</div>
+
+
+<div class="hw-konten-short">
+  <ion-item lines="full">
+    <div class="hw-col-2">
+      <span style="color: #656565;">
+        Mini Soccer
+      </span>
+    </div>
+    <div class="hw-col-2" style="text-align: right;">
+      <span class="hw-paid">Berhasil</span>
+    </div>
+  </ion-item>
+
+  <ion-item lines="none">
+    <div class="hw-col-3 col-logo">
+      <img class="logo-lapangan" src="assets/olahraga/Image 17.png">
+    </div>
+    <div class="hw-col-4">
+      <p class="hw-namalap">Karsa Mini Soccer</p>
+      <p class="hw-tglbook">28 September 2022</p>
+    </div>
+    <div class="hw-col-3" style="text-align: right;">
+      <p class="hw-harga">Rp455.000</p>
+    </div>
+  </ion-item>
+</div>
+
+
+<div class="hw-konten-short">
+  <ion-item lines="full">
+    <div class="hw-col-2">
+      <span style="color: #656565;">
+        Mini Soccer
+      </span>
+    </div>
+    <div class="hw-col-2" style="text-align: right;">
+      <span class="hw-unpaid">Gagal</span>
+    </div>
+  </ion-item>
+
+  <ion-item lines="none">
+    <div class="hw-col-3 col-logo">
+      <img class="logo-lapangan" src="assets/olahraga/Image 17.png">
+    </div>
+    <div class="hw-col-4">
+      <p class="hw-namalap">Karsa Mini Soccer</p>
+      <p class="hw-tglbook">28 September 2022</p>
+    </div>
+    <div class="hw-col-3" style="text-align: right;">
+      <p class="hw-harga">Rp455.000</p>
+    </div>
+  </ion-item>
+</div>
+
+
 </ion-content>
+

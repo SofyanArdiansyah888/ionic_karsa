@@ -1,23 +1,27 @@
 <ion-content>
-
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <!-- mode="ios" -->
   <ion-header class="ion-no-border">
+    <ion-item style="margin: 35px 0 -20px 0; z-index: 2;" lines="none">
+      <img class="logo" src="assets/olahraga/logo.png">
+      <div class="hw-chat">
+        <a href="/kontak">
+      <img class="chat" src="assets/olahraga/comment-dots-solid.svg">
+      <p>kontak</p>
+    </a>
+    </div>
+    </ion-item>
+
     <div class="paling-atas">
       <ion-toolbar class="bar-gede" no-padding>
         <ion-item class="hw-transparant" lines="none">
           <p class="title hw-titleatas">Mau olahraga apa hari ini ?</p>
-          <ion-avatar>
-            AG
-          </ion-avatar>
-         <!-- <div class="hw-user">
-            <p class="wel">Welcome</p>
-            <p class="nama">{{(user|async).client.nama_lengkap|titlecase}}</p>
-          </div> -->
         </ion-item>
-        <span>Booking online, GRATIS extra time 15menit!</span>
+        <span style="color: #A3A3A3;">
+          Booking online, GRATIS extra time 15menit!
+        </span>
       </ion-toolbar>
     </div>
 
@@ -30,7 +34,7 @@
           <!-- SLIDER  -->
           <ion-slides  autoplay="5000" loop="true" speed="300" pager="true" [options]="slideOptsOne" class="slider-atas" #homeSlide>
             <ion-slide>
-              <img src="assets/msport/global/Wallpaper.jpg">
+              <img src="assets/msport/global/banner-sportive.png">
             </ion-slide>
             <ion-slide>
               <img src="assets/msport/global/wall2.jpg">
@@ -69,12 +73,20 @@
         <div class="kotak">
           <ion-row>
             <ion-col class="scroll-col">
+          <a href="/olahraga">
               <div class="hw_menucepat">
-                <a href="/tabs/olahraga">
-                <img src="assets/msport/home/kikball.png">
-                </a>
-                <ion-badge *ngIf="menu.status_badge === 'on' " color="secondary"><span>Test</span>
-                </ion-badge>
+                <img src="assets/msport/home/bola.png">
+              </div>
+          </a>
+              <p class="title-produk ion-text-center">
+               <!-- {{menu.judul}} -->
+               Mini Soccer
+              </p>
+            </ion-col>
+
+            <ion-col class="scroll-col">
+              <div class="hw_menucepat hw-mnfutsal">
+                <img src="assets/msport/home/bola.png">
               </div>
               <p class="title-produk ion-text-center">
                <!-- {{menu.judul}} -->
@@ -83,23 +95,11 @@
             </ion-col>
 
             <ion-col class="scroll-col">
-              <div class="hw_menucepat" [style.background-color]="primary">
-                <img src="assets/msport/home/mini-soccer.png">
-                <ion-badge *ngIf="menu.status_badge === 'on' " color="#secondary"><span>Test</span>
-                </ion-badge>
+            <a href="/coming">
+              <div class="hw_menucepat hw_menu-oder">
+                <img src="assets/msport/home/bola.png">
               </div>
-              <p class="title-produk ion-text-center">
-               <!-- {{menu.judul}} -->
-               Mini soccer
-              </p>
-            </ion-col>
-
-            <ion-col class="scroll-col">
-              <div class="hw_menucepat hw_menu-oder" [style.background-color]="primary">
-                <img src="assets/msport/home/basketball-player.png">
-                <ion-badge *ngIf="menu.status_badge === 'on' " color="#secondary"><span>Test</span>
-                </ion-badge>
-              </div>
+            </a>
               <p class="title-produk ion-text-center">
                <!-- {{menu.judul}} -->
                Basket Ball
@@ -107,11 +107,11 @@
             </ion-col>
 
             <ion-col class="scroll-col">
-              <div class="hw_menucepat hw_menu-oder" [style.background-color]="primary">
-                <img src="assets/msport/home/badminton.png">
-                <ion-badge *ngIf="menu.status_badge === 'on' " color="#secondary"><span>Test</span>
-                </ion-badge>
+              <a href="/coming">
+              <div class="hw_menucepat hw_menu-oder">
+                <img src="assets/msport/home/bola.png">
               </div>
+              </a>
               <p class="title-produk ion-text-center">
                <!-- {{menu.judul}} -->
                Badminton
@@ -140,8 +140,8 @@
                 <div class="hw_tokopilihan">
                   <img class="gambarmitra" src="assets/msport/home/ftsl.jpg" />
                   <ion-item lines="none">
-                    <p class="diskon">Gor Stadion <span>Diskon : 10%</span></p>
-                    <p slot="end"><img class="logomitra" src="assets/msport/home/lapangan.svg"></p>
+                    <p class="nama-lap diskon">Gor Stadion Makassar Mall</p>
+                    <p class="fitur-tdktau" slot="end">BO</p>
                   </ion-item>
                 </div>
             </ion-col>
@@ -150,8 +150,8 @@
               <div class="hw_tokopilihan">
                 <img class="gambarmitra" src="assets/msport/home/holic.jpg" />
                 <ion-item lines="none">
-                  <p class="diskon">Futsal Holic <span>Diskon : 15%</span></p>
-                  <p slot="end"><img class="logomitra" src="assets/msport/home/lapangan.svg"></p>
+                  <p class="nama-lap diskon">Futsal Holic </p>
+                  <p class="fitur-tdktau" slot="end">GO</p>
                 </ion-item>
               </div>
           </ion-col>
@@ -160,8 +160,8 @@
             <div class="hw_tokopilihan">
               <img class="gambarmitra" src="assets/msport/home/gedung-futsal.jpg" />
               <ion-item lines="none">
-                <p class="diskon">Corner Futsal <span>Diskon : 10%</span></p>
-                <p slot="end"><img class="logomitra" src="assets/msport/home/lapangan.svg"></p>
+                <p class="nama-lap diskon">Corner Futsal</p>
+                <p class="fitur-tdktau" slot="end">ML</p>
               </ion-item>
             </div>
         </ion-col>
@@ -185,7 +185,7 @@
               <div class="hw_tokopilihan hw_berita">
                 <img class="gambarmitra" src="assets/msport/home/pro3.jpg" />
                 <ion-item lines="none">
-                  <p class="judul">Promo Pildun 2022</p>
+                  <p class="judul">Promo Pildun 2022 Beli 2 gratis 2</p>
                 </ion-item>
               </div>
             </ion-col>

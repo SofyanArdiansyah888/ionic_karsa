@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "@ionic/angular": "^6.1.9",
+    "axios": "^1.1.2",
     "cordova-android": "10.1.2",
     "ionic-horizontal-calendar": "^1.0.5",
     "ionicons": "^6.0.3",

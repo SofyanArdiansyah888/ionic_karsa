@@ -33,6 +33,13 @@
 }
 
 @font-face {
+  font-family: "Metropolis-ExtraBold";
+  src: url("../src/assets/fonts/Metropolis-ExtraBold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Metropolis-Semi";
   src: url("../src/assets/fonts/Metropolis-SemiBold.otf") format("truetype");
   font-weight: normal;
@@ -74,7 +81,7 @@
   border-radius: 20px !important;
   background: #f6f6f6 !important;
   text-align: center !important;
-  margin-top: 30px !important;
+  margin-top: 0px !important;
 }
 
 .hw-confir-reset #alert-1-msg,
@@ -104,11 +111,12 @@
 
 ion-tab-button {
   ion-icon {
-    fill: #f4f5f8;
+    fill: #FFFFFF;
   }
 
   ion-label {
-    color: #f4f5f8;
+    color: #FFFFFF;
+    opacity: 0.8;
   }
 }
 
@@ -343,20 +351,27 @@ div.hw-form-daftar {
 
   input {
     font-family: "Metropolis-Medium" !important;
-    background: #f6f6f6 !important;
+    background: #FCFCFC !important;
     border-radius: 20px !important;
-    height: 55px;
+    height: 45px;
     padding: 0 17px !important;
+    border: 1px solid #D4D4D4 !important;
   }
 
   .label-floating.sc-ion-label-ios-h {
     transform: translate3d(0, 36px, 0);
+    position: absolute;
+    top: -33px;
+    padding: 0;
+    left: 20px;
+    background: white;
+    font-size: 12px;
   }
-
+  
   .item-has-focus .label-floating.sc-ion-label-ios-h,
   .item-has-value .label-floating.sc-ion-label-ios-h {
     transform: translate3d(0, 0, 0) scale(0.82);
-    margin-top: 15px;
+    margin-top: 10px;
   }
 }
 
@@ -407,8 +422,8 @@ input {
 }
 
 .alert-wrapper {
-  --max-width: 90%;
-  border-radius: 10px;
+  --max-width: 70%;
+    border-radius: 15px !important;
 }
 
 .alert-button-inner {
@@ -426,9 +441,31 @@ input {
   .alert-message {
     font-family: "Metropolis-Regular";
     font-size: 14px;
-    text-align: left;
+    text-align: center;
     color: #707070;
     line-height: 1.5;
+    max-height: 100px;
+    padding-bottom: 0;
+    p.hw-intro {
+      font-family: "Metropolis-Bold";
+      font-size: 16px;
+      margin: 0;
+    }
+
+   .hw-backgrond {
+      height: 55px;
+      background: #EDF2F4;
+      border-radius: 50%;
+      width: 55px;
+      display: block;
+      margin: 0 auto;
+  }
+
+    img.gambar-alert {
+      height: 55px;
+      width: 55px;
+      padding: 15px;
+  }
   }
 
   .alert-button-group {
@@ -437,10 +474,10 @@ input {
 
     button {
       width: 100%;
-      margin-bottom: 25px;
-      text-transform: initial;
-      background: #fd9f27;
-      border-radius: 20px;
+    margin-bottom: 25px;
+    text-transform: initial;
+    background: #F15162;
+    border-radius: 20px;
 
       span.alert-button-inner {
         justify-content: center;
@@ -467,6 +504,14 @@ input {
       }
     }
   }
+}
+
+.berhasilki .alert-message, .gagalki .alert-message {
+  max-height: 100% !important;
+}
+
+.alert-input.sc-ion-alert-md:focus {
+  border-bottom: 2px solid #3880ff00;
 }
 
 ion-toast {
@@ -993,3 +1038,14 @@ a {
   color: #3880ff00;
   text-decoration: unset;
 }
+
+
+ion-accordion-group{
+  ion-accordion {
+      .ion-accordion-toggle-icon {
+          font-size: 18px;
+          color: #F15162;
+      }
+  }
+}
+

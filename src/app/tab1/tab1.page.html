@@ -2,16 +2,16 @@
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <!-- mode="ios" -->
+  <!-- HEADER -->
   <ion-header class="ion-no-border">
-    <ion-item style="margin: 35px 0 -20px 0; z-index: 2;" lines="none">
-      <img class="logo" src="assets/olahraga/logo.png">
+    <ion-item style="margin: 35px 0 -20px 0; z-index: 2" lines="none">
+      <img class="logo" src="assets/olahraga/logo.png" />
       <div class="hw-chat">
         <a href="/kontak">
-      <img class="chat" src="assets/olahraga/comment-dots-solid.svg">
-      <p>kontak</p>
-    </a>
-    </div>
+          <img class="chat" src="assets/olahraga/comment-dots-solid.svg" />
+          <p>kontak</p>
+        </a>
+      </div>
     </ion-item>
 
     <div class="paling-atas">
@@ -19,31 +19,30 @@
         <ion-item class="hw-transparant" lines="none">
           <p class="title hw-titleatas">Mau olahraga apa hari ini ?</p>
         </ion-item>
-        <span style="color: #A3A3A3;">
+        <span style="color: #a3a3a3">
           Booking online, GRATIS extra time 15menit!
         </span>
       </ion-toolbar>
     </div>
 
-    <div>
+    <div *ngIf="!loading">
       <div class="hw-slide">
         <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
           <ion-refresher-content></ion-refresher-content>
         </ion-refresher>
         <div class="hw-section-slide">
           <!-- SLIDER  -->
-          <ion-slides  autoplay="5000" loop="true" speed="300" pager="true" [options]="slideOptsOne" class="slider-atas" #homeSlide>
-            <ion-slide>
-              <img src="assets/msport/global/banner-sportive.png">
-            </ion-slide>
-            <ion-slide>
-              <img src="assets/msport/global/wall2.jpg">
-            </ion-slide>
-            <ion-slide>
-              <img src="assets/msport/global/soccer-ball.jpg">
-            </ion-slide>
-            <ion-slide>
-              <img src="assets/msport/global/soccer-ball.jpg">
+          <ion-slides
+            autoplay="5000"
+            loop="true"
+            speed="300"
+            pager="true"
+            [options]="slideOptsOne"
+            class="slider-atas"
+            #homeSlide
+          >
+            <ion-slide *ngFor="let advertising of advertisings">
+              <img src="{{imageUrl}}{{advertising.image}}" />
             </ion-slide>
           </ion-slides>
         </div>
@@ -51,13 +50,22 @@
     </div>
 
     <!-- SLIDER SKELETON -->
-    <div *ngIf="(sliders|async).loading">
+    <div *ngIf="loading">
       <div class="hw-slide">
-        <div [hidden]="!sliders" class="hw-section-slide">
+        <div  class="hw-section-slide">
           <!-- SLIDER  -->
           <ion-slides class="slider-atas">
             <ion-slide *ngFor="let slider of [1,2]">
-              <ion-skeleton-text animated slider style="width:90%;height:157px;border-radius:20px;margin-bottom:30px">
+              <ion-skeleton-text
+                animated
+                slider
+                style="
+                  width: 90%;
+                  height: 157px;
+                  border-radius: 20px;
+                  margin-bottom: 30px;
+                "
+              >
               </ion-skeleton-text>
             </ion-slide>
           </ion-slides>
@@ -66,113 +74,55 @@
     </div>
   </ion-header>
 
-  <!-- SECTION  MENU ATAS  -->
+  
   <div>
-    <div class="menu-atas">
+    <!-- KATEGORI -->
+    <div *ngIf="!loading" class="menu-atas">
       <div class="scrollable">
         <div class="kotak">
           <ion-row>
-            <ion-col class="scroll-col">
-          <a href="/olahraga">
-              <div class="hw_menucepat">
-                <img src="assets/msport/home/bola.png">
-              </div>
-          </a>
-              <p class="title-produk ion-text-center">
-               <!-- {{menu.judul}} -->
-               Mini Soccer
-              </p>
-            </ion-col>
-
-            <ion-col class="scroll-col">
-              <div class="hw_menucepat hw-mnfutsal">
-                <img src="assets/msport/home/bola.png">
-              </div>
-              <p class="title-produk ion-text-center">
-               <!-- {{menu.judul}} -->
-               Futsal
-              </p>
-            </ion-col>
-
-            <ion-col class="scroll-col">
-            <a href="/coming">
-              <div class="hw_menucepat hw_menu-oder">
-                <img src="assets/msport/home/bola.png">
-              </div>
-            </a>
-              <p class="title-produk ion-text-center">
-               <!-- {{menu.judul}} -->
-               Basket Ball
-              </p>
-            </ion-col>
-
-            <ion-col class="scroll-col">
-              <a href="/coming">
-              <div class="hw_menucepat hw_menu-oder">
-                <img src="assets/msport/home/bola.png">
-              </div>
+            <ion-col *ngFor="let category of categories" class="scroll-col">
+              <a href="/olahraga">
+                <div class="hw_menucepat" >
+                  <img src="assets/msport/home/bola.png" />
+                </div>
               </a>
               <p class="title-produk ion-text-center">
-               <!-- {{menu.judul}} -->
-               Badminton
+                {{category.name}}
               </p>
             </ion-col>
- 
           </ion-row>
         </div>
       </div>
     </div>
 
-
     <!-- Lapangan Terlaris -->
-    <div class="toko-pilihan">
+    <div *ngIf="!loading" class="toko-pilihan">
       <div>
         <ion-item lines="none" class="header-title">
           <p class="title">Lapangan Terlaris</p>
-
-          <!-- <p class="subtext" slot="end">Lihat Semua</p> -->
         </ion-item>
       </div>
       <div class="scrollable">
         <div class="kotak">
           <ion-row>
-            <ion-col class="scroll-col">
-                <div class="hw_tokopilihan">
-                  <img class="gambarmitra" src="assets/msport/home/ftsl.jpg" />
-                  <ion-item lines="none">
-                    <p class="nama-lap diskon">Gor Stadion Makassar Mall</p>
-                    <p class="fitur-tdktau" slot="end">BO</p>
-                  </ion-item>
-                </div>
-            </ion-col>
-
-            <ion-col class="scroll-col">
-              <div class="hw_tokopilihan">
-                <img class="gambarmitra" src="assets/msport/home/holic.jpg" />
+            <!-- COURT -->
+            <ion-col *ngFor="let court of courts" class="scroll-col">
+              <div class="hw_tokopilihan" (click)="courtClick(court)">
+                <img class="gambarmitra" src="{{imageUrl}}{{court.image}}" />
                 <ion-item lines="none">
-                  <p class="nama-lap diskon">Futsal Holic </p>
-                  <p class="fitur-tdktau" slot="end">GO</p>
+                  <p class="nama-lap diskon">{{court.name}}</p>
+                  <p class="fitur-tdktau" slot="end">BO</p>
                 </ion-item>
               </div>
-          </ion-col>
-
-          <ion-col class="scroll-col">
-            <div class="hw_tokopilihan">
-              <img class="gambarmitra" src="assets/msport/home/gedung-futsal.jpg" />
-              <ion-item lines="none">
-                <p class="nama-lap diskon">Corner Futsal</p>
-                <p class="fitur-tdktau" slot="end">ML</p>
-              </ion-item>
-            </div>
-        </ion-col>
+            </ion-col>
           </ion-row>
         </div>
       </div>
     </div>
 
-
     <!-- Promo Terbaru -->
-    <div class="toko-pilihan">
+    <div *ngIf="!loading" class="toko-pilihan">
       <div>
         <ion-item lines="none" class="header-title">
           <p class="title">Promo Terbaru</p>
@@ -181,46 +131,28 @@
       <div class="scrollable">
         <div class="kotak">
           <ion-row>
-            <ion-col class="scroll-col">
-              <div class="hw_tokopilihan hw_berita">
-                <img class="gambarmitra" src="assets/msport/home/pro3.jpg" />
+            <ion-col *ngFor="let promo of promos" class="scroll-col">
+              <div class="hw_tokopilihan hw_berita" (click)="promoClick(promo)">
+                <img class="gambarmitra" src="{{imageUrl}}{{promo.image}}" />
                 <ion-item lines="none">
-                  <p class="judul">Promo Pildun 2022 Beli 2 gratis 2</p>
+                  <p class="judul">{{promo.name}}</p>
                 </ion-item>
               </div>
             </ion-col>
 
-            <ion-col class="scroll-col">
-              <div class="hw_tokopilihan hw_berita">
-                <img class="gambarmitra" src="assets/msport/home/pro2.jpg" />
-                <ion-item lines="none">
-                  <p class="judul">Qatar Jersey 2022</p>
-                </ion-item>
-              </div>
-            </ion-col>
-
-            <ion-col class="scroll-col">
-              <div class="hw_tokopilihan hw_berita">
-                <img class="gambarmitra" src="assets/msport/home/pro1.jpg" />
-                <ion-item lines="none">
-                  <p class="judul">Nobar Pildun Qatar</p>
-                </ion-item>
-              </div>
-            </ion-col>
           </ion-row>
         </div>
       </div>
     </div>
-    
   </div>
 
-  <div *ngIf="(promos|async).loading">
+  <div *ngIf="loading">
     <div class="menu-atas">
       <div class="scrollable">
         <div class="kotak">
           <ion-row>
             <div class="scroll-col" *ngFor="let menu of [1,2,3,4]">
-              <div class="hw_menucepat" style="background:transparent">
+              <div class="hw_menucepat" style="background: transparent">
                 <ion-skeleton-text animated></ion-skeleton-text>
               </div>
               <p class="title-produk ion-text-center">
@@ -235,7 +167,10 @@
       <div>
         <ion-item lines="none" class="header-title">
           <p class="title">
-            <ion-skeleton-text animated style="width:110px"></ion-skeleton-text>
+            <ion-skeleton-text
+              animated
+              style="width: 110px"
+            ></ion-skeleton-text>
           </p>
         </ion-item>
       </div>
@@ -243,8 +178,11 @@
         <div class="kotak">
           <ion-row>
             <div class="scroll-col" *ngFor="let mitra of [1,2,3]">
-              <div class="hw_tokopilihan" style="box-shadow:unset">
-                <ion-skeleton-text animated style="height:142px"></ion-skeleton-text>
+              <div class="hw_tokopilihan" style="box-shadow: unset">
+                <ion-skeleton-text
+                  animated
+                  style="height: 142px"
+                ></ion-skeleton-text>
               </div>
             </div>
           </ion-row>

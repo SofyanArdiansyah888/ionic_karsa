@@ -45,6 +45,14 @@ const routes: Routes = [
   {
     path: 'coming',
     loadChildren: () => import('./coming/coming.module').then( m => m.ComingPageModule)
+  },
+  {
+    path: 'detail-promo',
+    loadChildren: () => import('./detail-promo/detail-promo.module').then( m => m.DetailPromoPageModule)
+  },
+  {
+    path: 'detail-court',
+    loadChildren: () => import('./detail-court/detail-court.module').then( m => m.DetailCourtPageModule)
   }
 ];
 @NgModule({

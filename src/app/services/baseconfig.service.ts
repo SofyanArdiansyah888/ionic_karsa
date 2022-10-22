@@ -1,13 +1,17 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { environment } from '../../environments/environment';
 
 // BASE CONFIGURATION
 @Injectable({
     providedIn: 'root'
   })
   export class BaseConfig {
-    baseConfig = {};
-    baseUrl = '';
+    baseConfig = {
+     headers: {Authorization: 'Bearer 1|iyIdomUt4AjLTc6MYENhkEuTunAery8muk03OBOc'}
+     };
+    baseUrl = environment.baseUrl;
 
     async get(url: string) {
       return await axios.get(`${this.baseUrl}/${url}`, this.baseConfig);

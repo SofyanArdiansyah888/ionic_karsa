@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Injectable } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
@@ -7,47 +8,35 @@ import { AlertController } from '@ionic/angular';
 export class AlertService {
   constructor(private alertController: AlertController) {}
 
-  async success(subHeader, button, btnclass = 'warna onebtn') {
+  async success(message = '') {
     const alert = await this.alertController.create({
-      cssClass: 'konfirmasiki ',
+      cssClass: 'berhasilki konfirmasi',
       message:
-        '<img class="hw-icon" src="assets/jac/global/bullhorn-solid.svg">',
-      header: 'Sukses',
-      subHeader,
-      buttons: [
-        {
-          text: button,
-          cssClass: btnclass,
-        },
-      ],
+        `<div class="hw-backgrond"><img src="assets/olahraga/bullhorn-solid.svg" class="gambar-alert"></div> <br> <p class="hw-intro">Berhasil<p>${message}`,
+      buttons: ['TERIMA KASIH'],
     });
-    alert.present();
+
+    await alert.present();
   }
 
-  async fail(subHeader, header = 'Gagal') {
+  async fail(message = 'Error') {
     const alert = await this.alertController.create({
-      cssClass: 'konfirmasiki',
+      cssClass: 'gagalki konfirmasi',
       message:
-        '<img class="hw-icon" src="assets/jac/global/bullhorn-solid.svg">',
-      header,
-      subHeader,
-      buttons: [
-        {
-          text: 'Cancel',
-          cssClass: 'warna',
-        },
-      ],
+        `<div class="hw-backgrond"><img src="assets/olahraga/bullhorn-solid.svg" class="gambar-alert"></div><br> <p class="hw-intro">Maaf<p>${message}`,
+      //header: 'lupa',
+      //message: 'Kami akan mengirimkan password baru ke alamat Email Anda.',
+      buttons: ['OK'],
     });
-    alert.present();
+
+    await alert.present();
   }
 
-  async confirm(subHeader, button1, button2, callback) {
+  async confirm(message, button1, button2, callback) {
     const alert = await this.alertController.create({
-      cssClass: 'konfirmasiki',
+      cssClass: 'gagalki konfirmasi',
       message:
-        '<img class="hw-icon" src="assets/jac/global/bullhorn-solid.svg">',
-      header: 'Maaf',
-      subHeader,
+      `<div class="hw-backgrond"><img src="assets/olahraga/bullhorn-solid.svg" class="gambar-alert"></div><br> <p class="hw-intro">Maaf<p>${message}`,
       buttons: [
         {
           text: button1,

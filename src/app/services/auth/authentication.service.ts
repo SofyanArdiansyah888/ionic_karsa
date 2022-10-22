@@ -1,22 +1,18 @@
-import { Injectable } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { Observable } from "rxjs";
-import { AppState } from "src/app/store";
-import { checkLogin } from "src/app/store/selectors/user.selectors";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AuthenticationService {
-  isLogin: Observable<boolean>;
-  constructor(private store: Store<AppState>) {}
-
+  isLoggedIn = false;
+  constructor() { }
+  // tslint:disable-next-line:variable-name
+  setLoggedIn(_value) {
+    this.isLoggedIn = _value;
+  }
   isAuthenticated(): boolean {
-    this.isLogin = this.store.select(checkLogin);
-    let result = false;
-    this.isLogin.subscribe((login) => {
-      result = login;
-    });
-    return result;
+    return this.isLoggedIn;
   }
 }

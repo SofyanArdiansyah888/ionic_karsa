@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { CourtEntity } from '../entities/Court.entity';
+import { AuthenticationService } from '../services/auth/authentication.service';
+import { AlertService } from '../services/ionic/alert.service';
 
 @Component({
   selector: 'app-detail-court',
@@ -20,11 +22,19 @@ export class DetailCourtPage implements OnInit {
     sports:''
   };
   imageUrl = environment.imageUrl;
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController,
+    private authService: AuthenticationService,
+    private alertService: AlertService) { }
 
   ngOnInit() {
   }
 
+  bookingClick(){
+    if(this.authService.isLoggedIn){
+    }else{
+      this.alertService.fail('Silahkan login terlebih dahulu untuk dapat membooking!');
+    }
+  }
   backClick() {
     this.modalController.dismiss();
   }

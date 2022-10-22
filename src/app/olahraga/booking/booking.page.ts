@@ -28,6 +28,13 @@ export class BookingPage implements OnInit {
     },
   ];
   imageUrl = environment.imageUrl;
+
+  // DATE
+  date = new Date();
+  year = this.date.getFullYear();
+  month = this.date.getMonth();
+  day = this.date.getDay();
+
   constructor(navParams: NavParams, private apiService: ApiService) {
     this.court = navParams.data.court;
     this.venue = navParams.data.venue;

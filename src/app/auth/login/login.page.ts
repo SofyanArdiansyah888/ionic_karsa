@@ -1,5 +1,12 @@
+/* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AlertController, ModalController, NavController } from '@ionic/angular';
+import { AxiosError } from 'axios';
+import { ApiService } from 'src/app/services/api.service';
+import { AuthenticationService } from 'src/app/services/auth/authentication.service';
+import { DatabaseService } from 'src/app/services/database/database.service';
+import { AlertService } from 'src/app/services/ionic/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +14,48 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  constructor(
+    private alertController: AlertController,
+    private authService: AuthenticationService,
+    private navController: NavController,
+    private modalController: ModalController,
+    private alertService: AlertService,
+    private apiService: ApiService,
+    private databaseService: DatabaseService
+  ) {}
 
-  constructor(private alertController: AlertController) { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  backClick(){
+    // this.navController.back();
+    this.modalController.dismiss();
+  }
+
+  async login(loginData){
+    try {
+      const result = await this.apiService.login(loginData);
+      if(result.data.status === true){
+        this.databaseService.setAccessToken(result.data.token);
+        this.authService.setLoggedIn(true);
+        this.navController.navigateRoot('tabs/tab1');
+        this.modalController.dismiss();
+        this.alertService.success('Berhasil Login');
+      }else{
+        this.alertService.fail(result.data.message);
+      }
+    } catch (error) {
+      this.alertService.fail(error.response.data.message);
+    }
+
+
+    this.authService.setLoggedIn(true);
   }
 
   async lupakiAlert() {
     const alert = await this.alertController.create({
       cssClass: 'konfirmasi',
-      message: '<div class="hw-backgrond"><img src="assets/olahraga/lock-solid.svg" class="gambar-alert"></div> <br> <p class="hw-intro">Lupa ?<p>',
+      message:
+        '<div class="hw-backgrond"><img src="assets/olahraga/lock-solid.svg" class="gambar-alert"></div> <br> <p class="hw-intro">Lupa ?<p>',
       //header: 'lupa',
       //message: 'Kami akan mengirimkan password baru ke alamat Email Anda.',
       buttons: ['Kirim Password'],
@@ -37,7 +76,8 @@ export class LoginPage implements OnInit {
   async berhasilAlert() {
     const alert = await this.alertController.create({
       cssClass: 'berhasilki konfirmasi',
-      message: '<div class="hw-backgrond"><img src="assets/olahraga/bullhorn-solid.svg" class="gambar-alert"></div> <br> <p class="hw-intro">Berhasil<p>Password baru telah kami kirim ke email anda.',
+      message:
+        '<div class="hw-backgrond"><img src="assets/olahraga/bullhorn-solid.svg" class="gambar-alert"></div> <br> <p class="hw-intro">Berhasil<p>Password baru telah kami kirim ke email anda.',
       //header: 'lupa',
       //message: 'Kami akan mengirimkan password baru ke alamat Email Anda.',
       buttons: ['TERIMA KASIH'],
@@ -49,7 +89,8 @@ export class LoginPage implements OnInit {
   async gagalAlert() {
     const alert = await this.alertController.create({
       cssClass: 'gagalki konfirmasi',
-      message: '<div class="hw-backgrond"><img src="assets/olahraga/bullhorn-solid.svg" class="gambar-alert"></div><br> <p class="hw-intro">Maaf<p>Email/Password yang anda masukkan belum terdaftar atau Salah.',
+      message:
+        '<div class="hw-backgrond"><img src="assets/olahraga/bullhorn-solid.svg" class="gambar-alert"></div><br> <p class="hw-intro">Maaf<p>Email/Password yang anda masukkan belum terdaftar atau Salah.',
       //header: 'lupa',
       //message: 'Kami akan mengirimkan password baru ke alamat Email Anda.',
       buttons: ['OK'],

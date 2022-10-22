@@ -10,6 +10,8 @@ import { PromoEntity } from '../entities/Promo.entity';
 import { KontakPage } from '../kontak/kontak.page';
 import { OlahragaPage } from '../olahraga/olahraga.page';
 import { ApiService } from '../services/api.service';
+import { AuthenticationService } from '../services/auth/authentication.service';
+import { AlertService } from '../services/ionic/alert.service';
 import { ModalService } from '../services/ionic/modal.service';
 
 @Component({
@@ -28,7 +30,9 @@ export class Tab1Page {
   constructor(
     private api: ApiService,
     private modal: ModalService,
-    private router: Router
+    private router: Router,
+    private authService: AuthenticationService,
+    private alertService: AlertService
   ) {
     this.init();
   }
@@ -69,6 +73,10 @@ export class Tab1Page {
   }
 
   kategoriClick(category: CategoryEntity){
-    this.modal.show(OlahragaPage,{category});
+    if(this.authService.isLoggedIn){
+      this.modal.show(OlahragaPage,{category});
+    }else{
+      this.alertService.fail('Silahkan login terlebih dahulu untuk dapat membooking!');
+    }
   }
 }

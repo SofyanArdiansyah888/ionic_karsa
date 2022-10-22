@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-kontak',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KontakPage implements OnInit {
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
+  }
+
+  backClick(){
+    this.modalController.dismiss();
   }
 
 }

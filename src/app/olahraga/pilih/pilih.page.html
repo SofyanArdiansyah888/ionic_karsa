@@ -1,154 +1,81 @@
 <ion-content fullscreen="true">
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
-  <div style="width: 100%;">
-  <ion-item lines="none" class="header-title" style="margin-bottom: -10px;">
-    <ion-col size="1">
-      <ion-icon class="backclik_black" (click)="backClick()" src="assets/icon/chevron-left.svg"></ion-icon>
-  </ion-col>
-  <ion-col size="11">
-    <p class="title" style="margin: 20px 0 0px 10px;">Lapangan</p>
-    <p style="margin: 0;">
-      <span style="padding-left: 10px;">Silahkan mencari lapangan pilihan kamu</span>
-    </p>
-  </ion-col>
-  </ion-item>
-</div>
-
-<!--Datanya-->
-<div class="datanya">
-  <ion-item class="hw-lapangan" lines="none">
-  <img class="hw-ganbarnya" src="assets/msport/global/Image 10.png">
-</ion-item>
-
-<!--Nama Lapangan & Deskripsi-->
-<ion-item class="hw-lapangan produk-desc" lines="none">
-  <ion-col>
-    <p class="hw-nama-lapangan">
-      Lapangan A
-    </p>
-    <p class="hw-deskripsi">
-      Lapangan dengan standar internasional yang memakai rumput sintetis dengan suasana outdoor, sangat cocok untuk latihan kamu.
-    </p>
-  </ion-col>
-</ion-item>
-
-<!--Jenis Fasilitasnya-->
-<ion-item class="hw-lapangan spesifikasi" lines="none" style="margin-top: -20px;">
-  <ion-col size="12">
-    <div class="hw-col-main">
-    <div class="hw-col6 hw-jenis">
-      <p>Cabang Olahraga</p>
-    </div>
-    <div class="hw-col6 teks-kanan">
-      <p>Mini Soccer </p>
-      <p>Futsal</p>
-    </div>
+  <div style="width: 100%">
+    <ion-item lines="none" class="header-title" style="margin-bottom: -10px">
+      <ion-col size="1">
+        <ion-icon
+          class="backclik_black"
+          (click)="backClick()"
+          src="assets/icon/chevron-left.svg"
+        ></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <p class="title" style="margin: 20px 0 0px 10px">Lapangan</p>
+        <p style="margin: 0">
+          <span style="padding-left: 10px"
+            >Silahkan mencari lapangan pilihan kamu</span
+          >
+        </p>
+      </ion-col>
+    </ion-item>
   </div>
 
-  <div class="hw-col-main">
-    <div class="hw-col6 hw-jenis">
-      <p>Jenis Lapangan</p>
-    </div>
-    <div class="hw-col6 teks-kanan">
-      <p>Outdoor </p>
-    </div>
+  <!--Datanya-->
+  <div class="datanya" *ngFor="let court of courts">
+    <ion-item class="hw-lapangan" lines="none">
+      <img class="hw-ganbarnya" src="{{imageUrl}}{{court.image}}" />
+    </ion-item>
+
+    <!--Nama Lapangan & Deskripsi-->
+    <ion-item class="hw-lapangan produk-desc" lines="none">
+      <ion-col>
+        <p class="hw-nama-lapangan">{{court.name}}</p>
+        <p class="hw-deskripsi">{{court.description}}</p>
+      </ion-col>
+    </ion-item>
+
+    <!--Jenis Fasilitasnya-->
+    <ion-item
+      class="hw-lapangan spesifikasi"
+      lines="none"
+      style="margin-top: -20px"
+    >
+      <ion-col size="12">
+        <div class="hw-col-main">
+          <div class="hw-col6 hw-jenis">
+            <p>Cabang Olahraga</p>
+          </div>
+          <div class="hw-col6 teks-kanan">
+            <p>{{court.sports}}</p>
+          </div>
+        </div>
+
+        <div class="hw-col-main">
+          <div class="hw-col6 hw-jenis">
+            <p>Jenis Lapangan</p>
+          </div>
+          <div class="hw-col6 teks-kanan">
+            <p>{{court.field_type}}</p>
+          </div>
+        </div>
+
+        <div class="hw-col-main">
+          <div class="hw-col6 hw-jenis">
+            <p>Jenis Alas</p>
+          </div>
+          <div class="hw-col6 teks-kanan">
+            <p>{{court.pedestal_type}}</p>
+          </div>
+        </div>
+        <div style="border: 1px solid #ebebeb"></div>
+      </ion-col>
+    </ion-item>
+
+    <!--Harganya-->
+    <ion-item lines="none">
+      <ion-col>
+        <p class="harga">{{court.price_description}}</p>
+        <span class="hw-btn" (click) = "bookingClick(court)">Pilih</span>
+      </ion-col>
+    </ion-item>
   </div>
-
-  <div class="hw-col-main">
-    <div class="hw-col6 hw-jenis">
-      <p>Jenis Alas</p>
-    </div>
-    <div class="hw-col6 teks-kanan">
-      <p>Rumput Sintetik </p>
-    </div>
-  </div>
-  <div style="border:1px solid #EBEBEB ;"></div>
-  </ion-col>
-</ion-item>
-
-<!--Harganya-->
-<ion-item lines="none">
-  <ion-col>
-  <p class="harga">
-    Rp.350.000<span>/ sesi</span>
-  </p>
-  <span class="hw-btn">Pilih</span>
-</ion-col>
-</ion-item>
-</div>
-
-
-
-<!--Sample Lapangan B-->
-<!--Datanya-->
-<div class="datanya">
-  <ion-item class="hw-lapangan" lines="none">
-  <img class="hw-ganbarnya" src="assets/msport/global/Image 11.png">
-</ion-item>
-
-<!--Nama Lapangan & Deskripsi-->
-<ion-item class="hw-lapangan produk-desc" lines="none">
-  <ion-col>
-    <p class="hw-nama-lapangan">
-      Lapangan B
-    </p>
-    <p class="hw-deskripsi">
-      Lapangan dengan standar internasional yang memakai rumput sintetis dengan suasana outdoor, sangat cocok untuk latihan kamu.
-    </p>
-  </ion-col>
-</ion-item>
-
-<!--Jenis Fasilitasnya-->
-<ion-item class="hw-lapangan spesifikasi" lines="none" style="margin-top: -20px;">
-  <ion-col size="12">
-    <div class="hw-col-main">
-    <div class="hw-col6 hw-jenis">
-      <p>Cabang Olahraga</p>
-    </div>
-    <div class="hw-col6 teks-kanan">
-      <p>Mini Soccer </p>
-      <p>Futsal</p>
-    </div>
-  </div>
-
-  <div class="hw-col-main">
-    <div class="hw-col6 hw-jenis">
-      <p>Jenis Lapangan</p>
-    </div>
-    <div class="hw-col6 teks-kanan">
-      <p>Indoor </p>
-    </div>
-  </div>
-
-  <div class="hw-col-main">
-    <div class="hw-col6 hw-jenis">
-      <p>Jenis Alas</p>
-    </div>
-    <div class="hw-col6 teks-kanan">
-      <p>Rumput Sintetik </p>
-    </div>
-  </div>
-  <div style="border:1px solid #EBEBEB ;"></div>
-  </ion-col>
-</ion-item>
-
-<!--Harganya-->
-
-<ion-item lines="none">
-  <ion-col>
-  <p class="harga">
-    Rp.550.000<span>/ sesi</span>
-  </p>
-  <a href="/olahraga/booking">
-  <span class="hw-btn">Pilih</span>
-</a>
-</ion-col>
-</ion-item>
-</div>
-
-
 </ion-content>
-

@@ -16,20 +16,17 @@
   
       <div>
         <div class="hw-slide">
-          <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-            <ion-refresher-content></ion-refresher-content>
-          </ion-refresher>
           <div class="hw-section-slide">
             <!-- SLIDER  -->
             <ion-slides  autoplay="5000" loop="true" speed="300" pager="true" [options]="slideOptsOne" class="slider-atas" #homeSlide>
-              <ion-slide>
-                <img src="assets/msport/global/bar.jpeg">
+              <ion-slide *ngIf="venue.image1 !== ''">
+                <img src="{{imageUrl}}{{venue.image1}}">
               </ion-slide>
-              <ion-slide>
-                <img src="assets/msport/global/soccer-ball.jpg">
+              <ion-slide *ngIf="venue.image2 !== ''">
+                <img src="{{imageUrl}}{{venue.image2}}">
               </ion-slide>
-              <ion-slide>
-                <img src="assets/msport/global/soccer-ball.jpg">
+              <ion-slide *ngIf="venue.image3 !== ''">
+                <img src="{{imageUrl}}{{venue.image3}}">
               </ion-slide>
             </ion-slides>
           </div>
@@ -43,14 +40,14 @@
   <!-- Kategori Olahraga-->
   <div style="width: 100%;">
     <ion-item lines="none" class="header-title">
-      <p class="title" style="margin: 20px 0 0px 0;">Miniso Area</p>
+      <p class="title" style="margin: 20px 0 0px 0;">{{venue.name}}</p>
     </ion-item>
     <ion-icon class="hw-star" src="assets/olahraga/star-solid.svg"></ion-icon>
     <p class="title" style="margin: 2px 0px 5px 40px; font-size: 16px;">
-      5.0 - Kota Makassar
+      {{venue.rating}} - {{venue.city}}
     </p>
     <p style="margin: 0;">
-      <span style="padding: 0 20px;">Sport center Mini Soccer terbaik yang berada di tengah kota Makassar.</span>
+      <span style="padding: 0 20px;">{{venue.description}}</span>
     </p>
   </div>
 <div class="hw-empty-space"></div>
@@ -65,10 +62,10 @@
   </ion-item>
   <ion-item class="waktu" lines="none">
   <ion-col size="6"> 
-    <p class="hw-waktu">Senin-Ahad</p>
+    <p class="hw-waktu">{{venue.operating_day}}</p>
   </ion-col>
   <ion-col size="6"> 
-    <p class="hw-waktu teks-kanan">06:00 - 22:00</p>
+    <p class="hw-waktu teks-kanan">{{venue.operating_time}}</p>
   </ion-col>
   </ion-item>
 </div>
@@ -82,33 +79,9 @@
     </p>
   </ion-item>
   <ion-item class="fasilitas" lines="none">
-    <ion-col class="kiri" size="6"> 
+    <ion-col class="kiri" size="6" *ngFor="let facility of venue.facilities"> 
       <div class="isi-fasilitas">
-        <ion-icon src="assets/olahraga/air.svg"></ion-icon><span>Free Air Gelas</span>
-      </div>
-      <div class="isi-fasilitas">
-        <ion-icon src="assets/olahraga/mobil.svg"></ion-icon><span>Parkir Mobil</span>
-      </div>
-      <div class="isi-fasilitas">
-        <ion-icon src="assets/olahraga/motor.svg"></ion-icon><span>Parkir Motor</span>
-      </div>
-      <div class="isi-fasilitas">
-        <ion-icon src="assets/olahraga/musholla.svg"></ion-icon><span>Musholla</span>
-      </div>
-    </ion-col>
-
-    <ion-col class="kanan" size="6"> 
-      <div class="isi-fasilitas">
-        <ion-icon src="assets/olahraga/toilet.svg"></ion-icon><span>Toilet</span>
-      </div>
-      <div class="isi-fasilitas">
-        <ion-icon src="assets/olahraga/shower.svg"></ion-icon><span>Shower</span>
-      </div>
-      <div class="isi-fasilitas">
-        <ion-icon src="assets/olahraga/loker.svg"></ion-icon><span>Ruang Ganti</span>
-      </div>
-      <div class="isi-fasilitas">
-        <ion-icon src="assets/olahraga/tribun.svg"></ion-icon><span>Tribun Penonton</span>
+        <img src="{{imageUrl}}{{facility.image}}"/><span>{{facility.name}}</span>
       </div>
     </ion-col>
     </ion-item>
@@ -124,27 +97,27 @@
   </ion-item>
   <ion-item class="lokasi" lines="none">
     <ion-col size="9">
-      <span>Jl. Hertasning Baru no.23 Mappala, Kec. Rappocini, Kota Makassar, Sulawesi Selatan</span>
+      <span>{{venue.location}}</span>
     </ion-col>
     <ion-col size="3">
       <span class="hw-btn-view">Lihat</span>
     </ion-col>
   </ion-item>
-  <ion-item class="hw-map" lines="none">
+  <!-- <ion-item class="hw-map" lines="none">
     <img src="assets/olahraga/makassar-Google-map.png">
-  </ion-item>
+  </ion-item> -->
   </div>
   <div class="hw-empty-space"></div>
 
   <!--Aturan& Kebijakan-->
-  <div style="width: 100%;">
+  <div style="width: 100%;" (click)="termClick(venue)">
     <ion-item class="kebijakan" lines="none">
       <ion-col size="1">
         <ion-icon src="assets/olahraga/kebijakan.svg"></ion-icon>
       </ion-col>
       <ion-col size="11">
         <p>Aturan & Kebijakan</p>
-        <ion-icon style="position:absolute ; right:0px; top: 15px;" (click)="kebijakanna()" src="assets/olahraga/chevron-left.svg"></ion-icon>
+        <ion-icon style="position:absolute ; right:0px; top: 15px;"  src="assets/olahraga/chevron-left.svg"></ion-icon>
       </ion-col>
     </ion-item>
   
@@ -159,15 +132,15 @@
       <p class="teks">Harga mulai</p>
     </ion-col>
     <ion-col style="text-align:right;" size="6">
-      <p>Rp. 350.000<span>/sesi</span></p>
+      <p>{{venue?.courts[0].price_description}}</p>
     </ion-col>
 
   </ion-item>
 
   <ion-item class="hw-tombol" lines="none">
-  <ion-button class="pilih">
+  <ion-button class="pilih" (click) = "pilihLapanganClick(venue)">
     <span>
-      <a style="color:#fff;" href="/olahraga/pilih">
+      <a style="color:#fff;" >
         Pilih Lapangan
       </a>
     </span>

@@ -1,281 +1,213 @@
-
 <ion-content>
-
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <div style="width: 100%;">
-    <ion-item lines="none" class="header-title" style="margin-bottom: -10px;">
+  <div style="width: 100%">
+    <ion-item lines="none" class="header-title" style="margin-bottom: -10px">
       <ion-col size="1">
-      <ion-icon class="backclik_black" (click)="backClick()" src="assets/icon/chevron-left.svg"></ion-icon>
-    </ion-col>
-    <ion-col size="11">
-      <p class="title" style="margin: 20px 0 0px 10px;">Booking</p>
-      <p style="margin: 0;">
-        <span style="padding-left: 10px;">Silahkan memesan sesuai jadwal yang tersedia</span>
-      </p>
-    </ion-col>
-    </ion-item>
-  </div>
-
-<div class="hw-list" style="width:100% ;">
-  <a href="/olahraga/singlesport">
-<ion-item lines="none" class="hw-listlapangan">
-  <ion-col size="9" style="padding: 0;">
-    <p class="hw-nama">
-      Futsal Holic
-    </p>
-    <p class="hw-address">
-      Jl. Poros Bungoro - Tonasa 2 Bontoa, Minasatene Kabupaten Pangkep 90615
-      Sulawesi Selatan, Indonesia.
-    </p>
-
-    <p class="hw-fasilitas">Free air gelas</p>
-    <p class="hw-fasilitas">Ruang Ganti</p>
-
-    <p class="hw-nama harga">
-      Rp. Rp350.000<span>/ Sesi</span>
-    </p>
-  </ion-col>
-
-  <ion-col size="3">
-    <img class="thumbnail" src="assets/msport/home/ftsl.jpg" />
-  </ion-col>
-</ion-item>
-</a>
-</div>
-<div class="hw-empty-space"></div>
-
-<div class="hwdatetime">
-  <ion-item lines="none">
-    <ion-col size="6">
-      <p class="title hw-bultah" style="margin: 20px 0 0px 0px;">Oktober 2022</p>
-    </ion-col>
-    <ion-col size="6" style="margin-bottom: 15px;">
-      <ion-icon class="prev backclik_black" (click)="prev()" src="assets/icon/chevron-left.svg"></ion-icon>
-      <ion-icon class="next backclik_black" (click)="next()" src="assets/icon/chevron-right.svg"></ion-icon>
-    </ion-col>
-  </ion-item>
-
-  <ion-item>
-  <div class="outer-div">
-  
-    <div class="inner-div">
-    <ul id="dates">
-      <li>
-         <span>Ahad</span>
-        01</li>
-      <li>
-        <span>Senin</span>
-        02</li>
-      <li class="active booked">
-        <span>Selasa</span>
-        03</li>
-      <li>
-        <span>Rabu</span>
-        04</li>
-        <li class="active booked">
-        <span>Kamis</span>
-        05</li>
-      <li>
-        <span>Jumat</span>
-        06</li>
-      <li>
-        <span>Sabtu</span>
-        07</li>
-      <li>
-        <span>Minggu</span>
-        08</li>
-      <li>
-        <span>Senin</span>
-        09</li>
-      <li>
-        <span>Selasa</span>
-        10</li>
-      <li>
-        <span>Rabu</span>
-        11</li>
-      <li>
-        <span>Kamis</span>
-        12</li>
-      <li>
-        <span>Jumat</span>
-        13</li>
-      <li>
-        <span>Sabtu</span>
-        14</li>
-      <li>
-        <span>Ahad</span>
-        15</li>
-      <li>
-        <span>Mon</span>
-        16</li>
-      <li>
-        <span>Mon</span>
-        17</li>
-      <li>
-        <span>Mon</span>
-        18</li>
-      <li>
-        <span>Mon</span>
-        19</li>
-      <li>
-        <span>Mon</span>
-        20</li>
-      <li>
-        <span>Mon</span>
-        21</li>
-  <li>
-        <span>Mon</span>
-        22</li>
-        <li>
-        <span>Mon</span>
-        23</li>
-        <li>
-        <span>Mon</span>
-        24</li>
-        <li>
-        <span>Mon</span>
-        25</li>
-        <li>
-        <span>Mon</span>
-        26</li>
-        <li>
-        <span>Mon</span>
-        27</li>
-        <li>
-          <span>Mon</span>
-          28</li>
-        <li>
-          <span>Mon</span>
-          29</li>
-        <li>
-          <span>Mon</span>
-          30</li>  
-          <li>
-          <span>Mon</span>
-          31</li>
-    </ul>
-      </div>
-  </div>
-</ion-item>
-</div>
-
-
-<div class="hw-jamnya" id="pilih-jam">
-<ion-item lines="none">
-  <input type="checkbox" value="07:00 - 08:00"/>
-  <ion-col class="hw-time" size="12">
-    <label for="07:00 - 08:00">07:00 - 08:00</label><span class="harga">Rp.250.000</span>
-  </ion-col>
-  </ion-item>
-
-  <ion-item lines="none">
-    <input type="checkbox" value="08:00 - 09:00"/>
-    <ion-col class="hw-time" size="12">
-      <label for="08:00 - 09:00">08:00 - 09:00</label><span class="harga">Rp.250.000</span>
-    </ion-col>
-    </ion-item>
-
-    <ion-item lines="none">
-      <input type="checkbox" value="09:00 - 10:00"/>
-      <ion-col class="hw-time" size="12">
-        <label>09:00 - 10:00</label><span class="harga">Rp.250.000</span>
+        <ion-icon
+          class="backclik_black"
+          (click)="backClick()"
+          src="assets/icon/chevron-left.svg"
+        ></ion-icon>
       </ion-col>
-      </ion-item>
+      <ion-col size="11">
+        <p class="title" style="margin: 20px 0 0px 10px">Booking</p>
+        <p style="margin: 0">
+          <span style="padding-left: 10px"
+            >Silahkan memesan sesuai jadwal yang tersedia</span
+          >
+        </p>
+      </ion-col>
+    </ion-item>
+  </div>
 
-      <ion-item lines="none">
-        <input type="checkbox" value="10:00 - 11:00"/>
-        <ion-col class="hw-time" size="12">
-          <label>10:00 - 11:00</label><span class="harga">Rp.250.000</span>
+  <div class="hw-list" style="width: 100%">
+    <a href="/olahraga/singlesport">
+      <ion-item lines="none" class="hw-listlapangan">
+        <ion-col size="9" style="padding: 0">
+          <p class="hw-nama">{{court.name}}</p>
+          <p class="hw-address">{{court.description}}</p>
+
+          <p class="hw-fasilitas">Jenis Alas : {{court.pedestal_type}}</p>
+          <p class="hw-fasilitas">Jenis Lapangan : {{court.field_type}}</p>
+
+          <p class="hw-nama harga">{{court.price_description}}</p>
         </ion-col>
-        </ion-item>
 
-        <ion-item lines="none">
-          <input type="checkbox" value="11:00 - 12:00"/>
-          <ion-col class="hw-time" size="12">
-            <label>11:00 - 12:00</label><span class="harga">Rp.250.000</span>
-          </ion-col>
-          </ion-item>
+        <ion-col size="3">
+          <img class="thumbnail" src="{{imageUrl}}{{court.image}}" />
+        </ion-col>
+      </ion-item>
+    </a>
+  </div>
+  <div class="hw-empty-space"></div>
 
-          <ion-item lines="none">
-            <input type="checkbox" value="12:00 - 13:00"/>
-            <ion-col class="hw-time" size="12">
-              <label>12:00 - 13:00</label><span class="harga">Rp.250.000</span>
-            </ion-col>
-            </ion-item>
+  <div class="hwdatetime">
+    <ion-item lines="none">
+      <ion-col size="6">
+        <p class="title hw-bultah" style="margin: 20px 0 0px 0px">
+          Oktober 2022
+        </p>
+      </ion-col>
+      <ion-col size="6" style="margin-bottom: 15px">
+        <ion-icon
+          class="prev backclik_black"
+          (click)="prev()"
+          src="assets/icon/chevron-left.svg"
+        ></ion-icon>
+        <ion-icon
+          class="next backclik_black"
+          (click)="next()"
+          src="assets/icon/chevron-right.svg"
+        ></ion-icon>
+      </ion-col>
+    </ion-item>
 
-            <ion-item lines="none">
-              <input type="checkbox" value="13:00 - 14:00"/>
-              <ion-col class="hw-time" size="12">
-                <label>13:00 - 14:00</label><span class="harga">Rp.250.000</span>
-              </ion-col>
-              </ion-item>
+    <ion-item>
+      <div class="outer-div">
+        <div class="inner-div">
+          <ul id="dates">
+            <li>
+              <span>Ahad</span>
+              01
+            </li>
+            <li>
+              <span>Senin</span>
+              02
+            </li>
+            <li class="active booked">
+              <span>Selasa</span>
+              03
+            </li>
+            <li>
+              <span>Rabu</span>
+              04
+            </li>
+            <li class="active booked">
+              <span>Kamis</span>
+              05
+            </li>
+            <li>
+              <span>Jumat</span>
+              06
+            </li>
+            <li>
+              <span>Sabtu</span>
+              07
+            </li>
+            <li>
+              <span>Minggu</span>
+              08
+            </li>
+            <li>
+              <span>Senin</span>
+              09
+            </li>
+            <li>
+              <span>Selasa</span>
+              10
+            </li>
+            <li>
+              <span>Rabu</span>
+              11
+            </li>
+            <li>
+              <span>Kamis</span>
+              12
+            </li>
+            <li>
+              <span>Jumat</span>
+              13
+            </li>
+            <li>
+              <span>Sabtu</span>
+              14
+            </li>
+            <li>
+              <span>Ahad</span>
+              15
+            </li>
+            <li>
+              <span>Mon</span>
+              16
+            </li>
+            <li>
+              <span>Mon</span>
+              17
+            </li>
+            <li>
+              <span>Mon</span>
+              18
+            </li>
+            <li>
+              <span>Mon</span>
+              19
+            </li>
+            <li>
+              <span>Mon</span>
+              20
+            </li>
+            <li>
+              <span>Mon</span>
+              21
+            </li>
+            <li>
+              <span>Mon</span>
+              22
+            </li>
+            <li>
+              <span>Mon</span>
+              23
+            </li>
+            <li>
+              <span>Mon</span>
+              24
+            </li>
+            <li>
+              <span>Mon</span>
+              25
+            </li>
+            <li>
+              <span>Mon</span>
+              26
+            </li>
+            <li>
+              <span>Mon</span>
+              27
+            </li>
+            <li>
+              <span>Mon</span>
+              28
+            </li>
+            <li>
+              <span>Mon</span>
+              29
+            </li>
+            <li>
+              <span>Mon</span>
+              30
+            </li>
+            <li>
+              <span>Mon</span>
+              31
+            </li>
+          </ul>
+        </div>
+      </div>
+    </ion-item>
+  </div>
 
-              <ion-item lines="none">
-                <input type="checkbox" value="14:00 - 15:00"/>
-                <ion-col class="hw-time" size="12">
-                  <label>14:00 - 15:00</label><span class="harga">Rp.250.000</span>
-                </ion-col>
-                </ion-item>
-
-                <ion-item lines="none">
-                  <input type="checkbox" value="15:00 - 16:00"/>
-                  <ion-col class="hw-time" size="12">
-                    <label>15:00 - 16:00</label><span class="harga">Rp.250.000</span>
-                  </ion-col>
-                  </ion-item>
-
-                  <ion-item lines="none">
-                    <input type="checkbox" value="16:00 - 17:00"/>
-                    <ion-col class="hw-time" size="12">
-                      <label>16:00 - 17:00</label><span class="harga">Rp.250.000</span>
-                    </ion-col>
-                    </ion-item>
-
-                    <ion-item lines="none">
-                      <input type="checkbox" value="17:00 - 18:00"/>
-                      <ion-col class="hw-time" size="12">
-                        <label>17:00 - 18:00</label><span class="harga">Rp.250.000</span>
-                      </ion-col>
-                      </ion-item>
-
-                      <ion-item lines="none">
-                        <input type="checkbox" value="18:00 - 19:00"/>
-                        <ion-col class="hw-time" size="12">
-                          <label>18:00 - 19:00</label><span class="harga">Rp.250.000</span>
-                        </ion-col>
-                        </ion-item>
-
-                        <ion-item lines="none">
-                          <input type="checkbox" value="20:00 - 21:00"/>
-                          <ion-col class="hw-time" size="12">
-                            <label>20:00 - 21:00</label><span class="harga">Rp.250.000</span>
-                          </ion-col>
-                          </ion-item>
-
-                          <ion-item lines="none">
-                            <input type="checkbox" value="21:00 - 22:00"/>
-                            <ion-col class="hw-time" size="12">
-                              <label>21:00 - 22:00</label><span class="harga">Rp.250.000</span>
-                            </ion-col>
-                            </ion-item>
-
-                            <ion-item lines="none">
-                              <input type="checkbox" value="22:00 - 23:00"/>
-                              <ion-col class="hw-time" size="12">
-                                <label>22:00 - 23:00</label><span class="harga">Rp.250.000</span>
-                              </ion-col>
-                              </ion-item>
-
-                              <ion-item lines="none">
-                                <input type="checkbox" value="23:00 - 24:00"/>
-                                <ion-col class="hw-time" size="12">
-                                  <label>23:00 - 24:00</label><span class="harga">Rp.250.000</span>
-                                </ion-col>
-                                </ion-item>
- </div>
+  <div class="hw-jamnya" id="pilih-jam">
+    <ion-item lines="none" *ngFor="let bookingTime of bookingTimes">
+      <input type="checkbox" value="{{bookingTime.name}}" />
+      <ion-col class="hw-time" size="12">
+        <label for="{{bookingTime.name}}">{{bookingTime.name}}</label
+        ><span class="harga">{{bookingTime.price}}</span>
+      </ion-col>
+    </ion-item>
+  </div>
 </ion-content>
 
 <ion-footer>
@@ -284,15 +216,17 @@
       <p class="hw-labelharga">Total Biaya</p>
       <p class="hw-hargatotal">Rp.<span>0</span></p>
     </ion-col>
-    <ion-col size="6" style="margin: 0 auto; float: none; text-align: right; padding: 0;">
+    <ion-col
+      size="6"
+      style="margin: 0 auto; float: none; text-align: right; padding: 0"
+    >
       <ion-button class="pilih">
         <span>
-          <a style="color:#fff;" href="/olahraga/booking/keranjang">
+          <a style="color: #fff" href="/olahraga/booking/keranjang">
             Selanjutnya
           </a>
         </span>
       </ion-button>
     </ion-col>
-
   </ion-item>
 </ion-footer>

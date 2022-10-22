@@ -24,8 +24,10 @@ export class ApiService {
     return this.api.get('promos');
   }
 
-  venues() {
-    return this.api.get('venues');
+  venues(categoryId: any) {
+    const urlParams = new URLSearchParams();
+    urlParams.set('category_id', categoryId);
+    return this.api.get(`venues?${urlParams}`);
   }
 
 

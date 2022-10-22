@@ -3,128 +3,48 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <div style="width: 100%;">
-    <ion-item lines="none" class="header-title" style="margin-bottom: -10px;">
+  <div style="width: 100%">
+    <ion-item lines="none" class="header-title" style="margin-bottom: -10px">
       <ion-col size="1">
-        <ion-icon class="backclik_black" (click)="backClick()" src="assets/icon/chevron-left.svg"></ion-icon>
-    </ion-col>
-    <ion-col size="11">
-      <p class="title">Futsal</p>
-      <p style="margin: -11px 0 0px 10px;">
-        <span style="padding-left: 10px;">List venue pilihan untuk kamu</span>
-      </p>
-    </ion-col>
+        <ion-icon
+          class="backclik_black"
+          (click)="backClick()"
+          src="assets/icon/chevron-left.svg"
+        ></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <p class="title">{{category.name}}</p>
+        <p style="margin: -11px 0 0px 10px">
+          <span style="padding-left: 10px">List venue pilihan untuk kamu</span>
+        </p>
+      </ion-col>
     </ion-item>
-</div>
-
-<ion-item class="hw-cari" lines="none">
-<ion-icon class="icon-search" name="search" item-start></ion-icon>
-<ion-input placeholder="Lapangan Apaki Cari Bossku ?"></ion-input>
-</ion-item>
-
-<div class="hw-list" style="width:100% ;">
-  <a href="/olahraga/singlesport">
-<ion-item class="hw-listlapangan">
-  <ion-col size="9" style="padding: 0;">
-    <p class="hw-nama">
-      Futsal Holic
-    </p>
-    <p class="hw-address">
-      Jl. Poros Bungoro - Tonasa 2 Bontoa, Minasatene Kabupaten Pangkep 90615
-      Sulawesi Selatan, Indonesia.
-    </p>
-
-    <p class="hw-fasilitas">Free air gelas</p>
-    <p class="hw-fasilitas">Ruang Ganti</p>
-
-    <p class="hw-nama harga">
-      Rp. Rp350.000<span>/ Sesi</span>
-    </p>
-  </ion-col>
-
-  <ion-col size="3">
-    <img class="thumbnail" src="assets/msport/home/Image 17.png" />
-  </ion-col>
-</ion-item>
-</a>
-</div>
-
-<div class="hw-list" style="width:100% ;">
-  <ion-item class="hw-listlapangan">
-    <ion-col size="9" style="padding: 0;">
-      <p class="hw-nama">Futsal Holic</p>
-      <p class="hw-address">Jl. Hertasning Baru No.23, Makassar</p>
-      <p class="hw-nama harga">Rp. Rp350.000<span>/ Sesi</span></p>
-    </ion-col>
-  
-    <ion-col size="3">
-      <img class="thumbnail" src="assets/msport/home/Image 16.png" />
-    </ion-col>
-  </ion-item>
   </div>
 
-  <div class="hw-list" style="width:100% ;">
-    <ion-item class="hw-listlapangan">
-      <ion-col size="9" style="padding: 0;">
-        <p class="hw-nama">Futsal Holic</p>
-        <p class="hw-address">Jl. Hertasning Baru No.23, Makassar</p>
-        <p class="hw-fasilitas">Parkiran Motor</p>
-        <p class="hw-nama harga">Rp. Rp350.000<span>/ Sesi</span></p>
-      </ion-col>
-    
-      <ion-col size="3">
-        <img class="thumbnail" src="assets/msport/home/Image 18.png" />
-      </ion-col>
-    </ion-item>
-    </div>
+  <ion-item class="hw-cari" lines="none">
+    <ion-icon class="icon-search" name="search" item-start></ion-icon>
+    <ion-input placeholder="Lapangan Apaki Cari Bossku ?"></ion-input>
+  </ion-item>
 
-    <div class="hw-list" style="width:100% ;">
-      <ion-item class="hw-listlapangan">
-        <ion-col size="9" style="padding: 0;">
-          <p class="hw-nama">Futsal Holic</p>
-          <p class="hw-address">Jl. Hertasning Baru No.23, Makassar</p>
-          <p class="hw-fasilitas">Free air gelas</p>
-          <p class="hw-fasilitas">Ruang Ganti</p>
-          <p class="hw-fasilitas">Parkiran Motor</p>
-          <p class="hw-nama harga">Rp. Rp350.000<span>/ Sesi</span></p>
+  <div class="hw-list" style="width: 100%" *ngFor="let venue of venues">
+  
+      <ion-item class="hw-listlapangan" (click) = "venueClick(venue)">
+        <ion-col size="9" style="padding: 0">
+          <p class="hw-nama">{{venue.name}}</p>
+          <p class="hw-address">
+            {{venue.location}}
+          </p>
+
+          <p class="hw-fasilitas">{{venue?.facilities[0].name}}</p>
+          <p class="hw-fasilitas">{{venue?.facilities[1].name}}</p>
+
+          <p class="hw-nama harga">{{venue?.courts[0].price_description}}</p>
         </ion-col>
-      
+
         <ion-col size="3">
-          <img class="thumbnail" src="assets/msport/home/ftsl.jpg" />
+          <img class="thumbnail" src="{{imageUrl}}{{venue.logo}}" />
         </ion-col>
       </ion-item>
-      </div>
 
-      <div class="hw-list" style="width:100% ;">
-        <ion-item class="hw-listlapangan">
-          <ion-col size="9" style="padding: 0;">
-            <p class="hw-nama">Futsal Holic</p>
-            <p class="hw-address">Jl. Mallengkeri Zchar II, No.24A, Makassar, Sulawesi-Selatan, Indonesia.</p>
-            <p class="hw-fasilitas">Ruang Ganti</p>
-            <p class="hw-fasilitas">Parkiran Motor</p>
-            <p class="hw-nama harga">Rp. Rp350.000<span>/ Sesi</span></p>
-          </ion-col>
-        
-          <ion-col size="3">
-            <img class="thumbnail" src="assets/msport/home/logo_.png" />
-          </ion-col>
-        </ion-item>
-        </div>
-
-        <div class="hw-list" style="width:100% ;">
-          <ion-item class="hw-listlapangan">
-            <ion-col size="9" style="padding: 0;">
-              <p class="hw-nama">Futsal Holic</p>
-              <p class="hw-address">Jl. Hertasning Baru No.23, Makassar</p>
-              <p class="hw-fasilitas">Ruang Ganti</p>
-              <p class="hw-fasilitas">Air Gelas</p>
-              <p class="hw-nama harga">Rp. Rp350.000<span>/ Sesi</span></p>
-            </ion-col>
-          
-            <ion-col size="3">
-              <img class="thumbnail" src="assets/msport/home/ftsl.jpg" />
-            </ion-col>
-          </ion-item>
-          </div>
+  </div>
 </ion-content>
-

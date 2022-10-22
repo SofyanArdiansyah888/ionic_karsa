@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { DetailCourtPage } from '../detail-court/detail-court.page';
 import { DetailPromoPage } from '../detail-promo/detail-promo.page';
@@ -6,6 +7,8 @@ import { AdvertisingEntity } from '../entities/Advertising.entity';
 import { CategoryEntity } from '../entities/Category.entity';
 import { CourtEntity } from '../entities/Court.entity';
 import { PromoEntity } from '../entities/Promo.entity';
+import { KontakPage } from '../kontak/kontak.page';
+import { OlahragaPage } from '../olahraga/olahraga.page';
 import { ApiService } from '../services/api.service';
 import { ModalService } from '../services/ionic/modal.service';
 
@@ -22,7 +25,11 @@ export class Tab1Page {
   loading = false;
   imageUrl = environment.imageUrl;
 
-  constructor(private api: ApiService, private modal: ModalService) {
+  constructor(
+    private api: ApiService,
+    private modal: ModalService,
+    private router: Router
+  ) {
     this.init();
   }
 
@@ -57,4 +64,11 @@ export class Tab1Page {
     this.modal.show(DetailCourtPage, { court });
   }
 
+  kontakClick(){
+    this.modal.show(KontakPage);
+  }
+
+  kategoriClick(category: CategoryEntity){
+    this.modal.show(OlahragaPage,{category});
+  }
 }

@@ -7,7 +7,7 @@
     <ion-item style="margin: 35px 0 -20px 0; z-index: 2" lines="none">
       <img class="logo" src="assets/olahraga/logo.png" />
       <div class="hw-chat">
-        <a href="/kontak">
+        <a (click)="kontakClick()">
           <img class="chat" src="assets/olahraga/comment-dots-solid.svg" />
           <p>kontak</p>
         </a>
@@ -81,8 +81,8 @@
       <div class="scrollable">
         <div class="kotak">
           <ion-row>
-            <ion-col *ngFor="let category of categories" class="scroll-col">
-              <a href="/olahraga">
+            <ion-col *ngFor="let category of categories" class="scroll-col" >
+              <a (click)="kategoriClick(category)">
                 <div class="hw_menucepat" >
                   <img src="assets/msport/home/bola.png" />
                 </div>

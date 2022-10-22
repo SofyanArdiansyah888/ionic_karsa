@@ -22,16 +22,15 @@
   <!--Datanya-->
   <div class="datanya">
     <ion-item class="hw-lapangan" lines="none">
-      <img class="hw-ganbarnya" src="assets/msport/global/Image 10.png" />
+      <img class="hw-ganbarnya" src="{{imageUrl}}{{court.image}}" />
     </ion-item>
 
     <!--Nama Lapangan & Deskripsi-->
     <ion-item class="hw-lapangan produk-desc" lines="none">
       <ion-col>
-        <p class="hw-nama-lapangan">Lapangan A</p>
+        <p class="hw-nama-lapangan">{{court.name}}</p>
         <p class="hw-deskripsi">
-          Lapangan dengan standar internasional yang memakai rumput sintetis
-          dengan suasana outdoor, sangat cocok untuk latihan kamu.
+          {{court.description}}
         </p>
       </ion-col>
     </ion-item>
@@ -48,8 +47,7 @@
             <p>Cabang Olahraga</p>
           </div>
           <div class="hw-col6 teks-kanan">
-            <p>Mini Soccer</p>
-            <p>Futsal</p>
+            <p>{{court.sports}}</p>
           </div>
         </div>
 
@@ -58,7 +56,7 @@
             <p>Jenis Lapangan</p>
           </div>
           <div class="hw-col6 teks-kanan">
-            <p>Outdoor</p>
+            <p>{{court.field_type}}</p>
           </div>
         </div>
 
@@ -67,7 +65,7 @@
             <p>Jenis Alas</p>
           </div>
           <div class="hw-col6 teks-kanan">
-            <p>Rumput Sintetik</p>
+            <p>{{court.pedestal_type}}</p>
           </div>
         </div>
         <div style="border: 1px solid #ebebeb"></div>
@@ -77,7 +75,7 @@
     <!--Harganya-->
     <ion-item lines="none">
       <ion-col>
-        <p class="harga">Rp.350.000<span>/ sesi</span></p>
+        <p class="harga">{{court.price_description}}<span>/ sesi</span></p>
         <span class="hw-btn">Booking</span>
       </ion-col>
     </ion-item>

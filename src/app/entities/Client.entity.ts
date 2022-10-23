@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 export interface ClientEntity {
-  name: string;
-  email: string;
-  password: string;
-  remember_token: string;
+  sex: string;
+  birthday: string;
+  weight: string;
+  height: string;
   photo: string;
+  phone: string;
 }
 

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UserEntity } from '../entities/User.entity';
 import { BaseConfig } from './baseconfig.service';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { BaseConfig } from './baseconfig.service';
 export class ApiService {
 
   constructor(private api: BaseConfig) { }
+
 
   categories() {
     return this.api.get('categories');
@@ -30,10 +32,28 @@ export class ApiService {
     return this.api.get(`venues?${urlParams}`);
   }
 
+  policies(){
+    return this.api.get('policies');
+  }
+
 
 
 
   // AUTH
+  profile() {
+    return this.api.get('profile');
+  }
+  updateProfile(data: {
+    birthday: string;
+    sex: string;
+    name: string;
+    email: string;
+    phone: string;
+    height: number;
+    weight: number;
+  }) {
+    return this.api.post('update-profile',data);
+  }
   forgotPassword(data: { email: string}) {
     return this.api.post('forgot-password', data);
   }
@@ -44,6 +64,10 @@ export class ApiService {
 
   login(data: { username: string; password: string }) {
     return this.api.post('login', data);
+  }
+
+  register(data: { username: string; password: string }) {
+    return this.api.post('register', data);
   }
 }
 

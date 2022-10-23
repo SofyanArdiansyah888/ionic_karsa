@@ -15,7 +15,15 @@ const routes: Routes = [
   {
     path: 'biodata',
     loadChildren: () => import('./biodata/biodata.module').then( m => m.BiodataPageModule)
-  }
+  },
+  {
+    path: 'syarat-ketentuan',
+    loadChildren: () => import('./syarat-ketentuan/syarat-ketentuan.module').then( m => m.SyaratKetentuanPageModule)
+  },
+  {
+    path: 'kebijakan-privasi',
+    loadChildren: () => import('./kebijakan-privasi/kebijakan-privasi.module').then( m => m.KebijakanPrivasiPageModule)
+  },
 ];
 
 @NgModule({

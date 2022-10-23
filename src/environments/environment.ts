@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: `http://localhost:8000/api`,
-  imageUrl:`http://localhost:8000/storage/`
+  baseUrl: `https://marhomy.halowebku.com/api`,
+  imageUrl:`https://marhomy.halowebku.com/storage/`
 };
 
 /*

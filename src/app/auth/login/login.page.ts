@@ -7,6 +7,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 import { DatabaseService } from 'src/app/services/database/database.service';
 import { AlertService } from 'src/app/services/ionic/alert.service';
+import { ModalService } from 'src/app/services/ionic/modal.service';
+import { DaftarPage } from '../daftar/daftar.page';
 
 @Component({
   selector: 'app-login',
@@ -21,14 +23,18 @@ export class LoginPage implements OnInit {
     private modalController: ModalController,
     private alertService: AlertService,
     private apiService: ApiService,
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
+    private modalService: ModalService
   ) {}
 
   ngOnInit() {}
 
   backClick(){
-    // this.navController.back();
     this.modalController.dismiss();
+  }
+
+  daftarClick(){
+    this.modalService.show(DaftarPage);
   }
 
   async login(loginData){

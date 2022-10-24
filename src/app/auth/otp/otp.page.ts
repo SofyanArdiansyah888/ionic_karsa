@@ -1,21 +1,22 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+/* eslint-disable @typescript-eslint/member-ordering */
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   LoadingController,
   AlertController,
   NavController,
-} from "@ionic/angular";
+  NavParams,
+} from '@ionic/angular';
 //import { AuthenticationService } from "src/app/service/auth/authentication.service";
 //import { DatabaseService } from "src/app/service/database/database.service";
 //import { ApiService } from "../../../service/api/api.service";
 @Component({
-  selector: "app-otp",
-  templateUrl: "./otp.page.html",
-  styleUrls: ["./otp.page.scss"],
+  selector: 'app-otp',
+  templateUrl: './otp.page.html',
+  styleUrls: ['./otp.page.scss'],
 })
 export class OtpPage implements OnInit {
   dataform: any;
-  regemail: any;
   regisdata = {};
   timeInSeconds: any;
   time: any;
@@ -28,20 +29,20 @@ export class OtpPage implements OnInit {
   showOtpComponent = true;
   emptycode = false;
 
-  @ViewChild("ngOtpInput", { static: false }) ngOtpInput: any;
+  @ViewChild('ngOtpInput', { static: false }) ngOtpInput: any;
 
   config = {
     allowNumbersOnly: true,
     length: 6,
     isPasswordInput: false,
     disableAutoFocus: false,
-    placeholder: "",
+    placeholder: '',
     inputStyles: {
-      width: "35px",
-      height: "35px",
-      background: "#dedede",
-      "border-radius": "50px",
-      border: "0",
+      width: '35px',
+      height: '35px',
+      background: '#dedede',
+      'border-radius': '50px',
+      border: '0',
     },
   };
   constructor(
@@ -51,14 +52,15 @@ export class OtpPage implements OnInit {
    // private ApiService: ApiService,
     public alertController: AlertController,
     public navCtrl: NavController,
+    public navParams: NavParams
     //private auth: AuthenticationService
   ) {}
 
   ngOnInit() {
-    let dataregis = this.route.snapshot.paramMap.get("dataregis");
-    this.dataform = JSON.parse(dataregis);
-    let email = this.dataform;
-    this.regemail = email.email;
+    // const dataregis = this.route.snapshot.paramMap.get('dataregis');
+    this.dataform = this.navParams.data.data;
+    // this.dataform = JSON.parse(dataregis);
+    // const email = this.dataform;
     this.initTimer();
     this.startTimer();
   }
@@ -105,24 +107,28 @@ export class OtpPage implements OnInit {
   }
 
   getSecondsAsDigitalClock(inputSeconds: number) {
-    var sec_num = parseInt(inputSeconds.toString(), 10); // don't forget the second param
-    var hours = Math.floor(sec_num / 3600);
-    var minutes = Math.floor((sec_num - hours * 3600) / 60);
-    var seconds = sec_num - hours * 3600 - minutes * 60;
-    var hoursString = "";
-    var minutesString = "";
-    var secondsString = "";
-    hoursString = hours < 10 ? "0" + hours : hours.toString();
-    minutesString = minutes < 10 ? "0" + minutes : minutes.toString();
-    secondsString = seconds < 10 ? "0" + seconds : seconds.toString();
-    return minutesString + ":" + secondsString;
+    const secNum = parseInt(inputSeconds.toString(), 10); // don't forget the second param
+    const hours = Math.floor(secNum / 3600);
+    const minutes = Math.floor((secNum - hours * 3600) / 60);
+    const seconds = secNum - hours * 3600 - minutes * 60;
+    let hoursString = '';
+    let minutesString = '';
+    let secondsString = '';
+    hoursString = hours < 10 ? '0' + hours : hours.toString();
+    minutesString = minutes < 10 ? '0' + minutes : minutes.toString();
+    secondsString = seconds < 10 ? '0' + seconds : seconds.toString();
+    return minutesString + ':' + secondsString;
   }
 
   onOtpChange(otp) {
     this.otp = otp;
-    if (this.otp.length === 6) this.emptycode = true;
+    if (this.otp.length === 6) {this.emptycode = true;}
   }
 
-  
- 
+  register(form){
+
+  }
+
+
+
   }

@@ -66,6 +66,10 @@ export class ApiService {
     return this.api.post('login', data);
   }
 
+  sendOTP(data: { email: string}) {
+    return this.api.post('send-otp', data);
+  }
+
   register(data: { username: string; password: string }) {
     return this.api.post('register', data);
   }

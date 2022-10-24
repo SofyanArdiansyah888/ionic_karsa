@@ -55,7 +55,7 @@ export class ApiService {
     return this.api.post('update-profile',data);
   }
   forgotPassword(data: { email: string}) {
-    return this.api.post('forgot-password', data);
+    return this.api.post('forget-password', data);
   }
 
   changePassword(data: { newPassword: string; confirmPassword: string }) {

@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 import { DatabaseService } from 'src/app/services/database/database.service';
 import { AlertService } from 'src/app/services/ionic/alert.service';
+import { LoadingService } from 'src/app/services/ionic/loading.service';
 import { ModalService } from 'src/app/services/ionic/modal.service';
 import { DaftarPage } from '../daftar/daftar.page';
 
@@ -24,7 +26,8 @@ export class LoginPage implements OnInit {
     private alertService: AlertService,
     private apiService: ApiService,
     private databaseService: DatabaseService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit() {}
@@ -62,9 +65,13 @@ export class LoginPage implements OnInit {
       cssClass: 'konfirmasi',
       message:
         '<div class="hw-backgrond"><img src="assets/olahraga/lock-solid.svg" class="gambar-alert"></div> <br> <p class="hw-intro">Lupa ?<p>',
-      //header: 'lupa',
-      //message: 'Kami akan mengirimkan password baru ke alamat Email Anda.',
-      buttons: ['Kirim Password'],
+      buttons: [{
+        text: 'Kirim Password',
+        role: 'confirm',
+        handler: (data) => {
+          this.kirimEmail(data.alamatemail);
+        }
+      }],
       inputs: [
         {
           type: 'email',
@@ -77,6 +84,26 @@ export class LoginPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async kirimEmail(email: string) {
+    this.loadingService.show();
+    try {
+      const result: any = await this.apiService.forgotPassword({email});
+      console.log(result);
+      console.log(result.data.status);
+      if (!result.data.status) {
+         this.alertService.fail(result.data.message);
+      } else if (result.data.status) {
+         this.alertService.success(result.data.message);
+      } else if (result.data.status === 400) {
+        this.alertService.fail('email not falid');
+      }
+    }catch(e){
+      console.log(e);
+    }finally {
+      this.loadingService.hide();
+    }
   }
 
   async berhasilAlert() {

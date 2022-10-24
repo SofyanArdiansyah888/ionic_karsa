@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { LoadingController, Platform } from "@ionic/angular";
+import { Injectable } from '@angular/core';
+import { LoadingController, Platform } from '@ionic/angular';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
-export class Loading {
+export class LoadingService {
   loading: any;
   constructor(
     private loadingController: LoadingController,
@@ -16,13 +16,13 @@ export class Loading {
     //   console.log("back")
     // );
     this.loading = await this.loadingController.create({
-      message: "Loading...",
+      message: 'Loading...',
     });
     this.loading.present();
   }
 
   async hide() {
-    if (this.loading) await this.loading.dismiss();
+    if (this.loading) {await this.loading.dismiss();}
     // this.platform.backButton.unsubscribe();
   }
 }

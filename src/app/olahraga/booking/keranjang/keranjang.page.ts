@@ -71,6 +71,7 @@ export class KeranjangPage implements OnInit {
 
     try {
       this.apiService.doBooking(data);
+      this.alertService.success('Berhasil melakukan booking');
       this.modalController.dismiss();
       this.navController.navigateRoot('tabs/tab2');
     } catch (error) {

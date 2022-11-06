@@ -6,11 +6,15 @@ import { FacilityEntity } from './Facility.entity';
 
 
 export interface VenueEntity {
+  id?: number;
   name: string;
   city: string;
   operating_day: string;
   operating_time: string;
   location: string;
+  latitude?: number;
+  longitude?: number;
+  terms?: string;
   rating: string;
   description: string;
   logo: string;
@@ -21,6 +25,8 @@ export interface VenueEntity {
   category?: CategoryEntity;
   courts?: CourtEntity[];
   facilities?: FacilityEntity[];
-
+  created_at?: string;
+  updated_at?: string;
+  deleted_at?: string;
 }
 

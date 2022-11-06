@@ -6,6 +6,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+  // {
+  //   path:'',
+  //   redirectTo:'/olahraga/booking'
+  // },
   {
     path: 'olahraga',
     loadChildren: () => import('./olahraga/olahraga.module').then( m => m.OlahragaPageModule)

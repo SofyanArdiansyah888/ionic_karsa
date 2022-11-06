@@ -26,6 +26,18 @@ export class ApiService {
     return this.api.get('promos');
   }
 
+  bookingTimes(){
+    return this.api.get('booking-times');
+  }
+
+  bookings(){
+    return this.api.get('bookings');
+  }
+
+  doBooking(data){
+    return this.api.post('bookings',data);
+  }
+
   venues(categoryId: any) {
     const urlParams = new URLSearchParams();
     urlParams.set('category_id', categoryId);

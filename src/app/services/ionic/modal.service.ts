@@ -1,13 +1,12 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Injectable } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModalService {
-
-  constructor(private modalController:ModalController) { }
-
+  constructor(private modalController: ModalController) {}
 
   modalInst = [];
   i = 0;
@@ -17,12 +16,13 @@ export class ModalService {
     this.i++;
   }
 
-  async show(component,componentProps = {}){
-    let modal = await this.modalController.create({
+  async show(component, componentProps = {}) {
+    const modal = await this.modalController.create({
       component,
-      componentProps
-    })
+      componentProps,
+    });
     modal.present();
-    return await modal.onWillDismiss()
+    this.storeModal(modal);
+    return await modal.onWillDismiss();
   }
 }

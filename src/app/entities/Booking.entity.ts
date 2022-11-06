@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
+import { CourtEntity } from './Court.entity';
+
 export interface BookingEntity {
   court_id: number;
   client_id: number;
@@ -7,5 +9,6 @@ export interface BookingEntity {
   booking_time: string;
   status: string;
   hour: number;
+  court?: CourtEntity;
 }
 

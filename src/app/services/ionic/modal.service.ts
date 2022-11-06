@@ -22,7 +22,6 @@ export class ModalService {
       componentProps,
     });
     modal.present();
-    this.storeModal(modal);
     return await modal.onWillDismiss();
   }
 }

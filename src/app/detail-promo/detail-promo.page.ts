@@ -27,7 +27,6 @@ export class DetailPromoPage implements OnInit {
     private alertService: AlertService
   ) {
     this.court = navParams.data.court;
-    console.log(this.court);
   }
 
   ngOnInit() {}

@@ -22,18 +22,24 @@
   <!--PROMO DETAIL-->
   <div class="datanya">
     <ion-item class="hw-lapangan" lines="none">
-      <img class="hw-ganbarnya" src="{{imageUrl}}{{promo.image}}" />
+      <img class="hw-ganbarnya" src="{{imageUrl}}{{court.image}}" />
     </ion-item>
 
     <!-- DESCRIPTION -->
     <ion-item class="hw-lapangan produk-desc" lines="none">
       <ion-col>
-        <p class="hw-nama-lapangan">{{promo.name}}</p>
+        <p class="hw-nama-lapangan">{{court.name}}</p>
         <p class="hw-deskripsi">
-          {{promo.description}}
+          {{court.promo}}
         </p>
       </ion-col>
     </ion-item>
-
+    <!--Harganya-->
+    <ion-item lines="none">
+      <ion-col>
+        <p class="harga">{{court.price_description}}</p>
+        <span class="hw-btn" (click)="bookingClick()">Booking</span>
+      </ion-col>
+    </ion-item>
   </div>
 </ion-content>

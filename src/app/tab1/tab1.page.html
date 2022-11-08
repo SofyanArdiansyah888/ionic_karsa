@@ -108,7 +108,7 @@
           <ion-row>
             <!-- COURT -->
             <ion-col *ngFor="let court of courts" class="scroll-col">
-              <div class="hw_tokopilihan" (click)="courtClick(court)">
+              <div *ngIf="!court.isPromo" class="hw_tokopilihan" (click)="courtClick(court)">
                 <img class="gambarmitra" src="{{imageUrl}}{{court.image}}" />
                 <ion-item lines="none">
                   <p class="nama-lap diskon">{{court.name}}</p>
@@ -122,7 +122,7 @@
     </div>
 
     <!-- Promo Terbaru -->
-    <div *ngIf="!loading" class="toko-pilihan">
+    <div *ngIf="!loading && promos.length > 0" class="toko-pilihan">
       <div>
         <ion-item lines="none" class="header-title">
           <p class="title">Promo Terbaru</p>
@@ -135,8 +135,13 @@
               <div class="hw_tokopilihan hw_berita" (click)="promoClick(promo)">
                 <img class="gambarmitra" src="{{imageUrl}}{{promo.image}}" />
                 <ion-item lines="none">
-                  <p class="judul">{{promo.name}}</p>
+                  <div>
+                    <p class="judul" style="margin-bottom:0px ;">{{promo.name}}</p>
+                  <p style="margin-top:0px;font-size: 11px;margin-bottom:12px" >{{promo.promo}}</p>
+                  </div>
+                  
                 </ion-item>
+              
               </div>
             </ion-col>
 

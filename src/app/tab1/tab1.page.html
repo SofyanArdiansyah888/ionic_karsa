@@ -83,7 +83,7 @@
           <ion-row>
             <ion-col *ngFor="let category of categories" class="scroll-col" >
               <a (click)="kategoriClick(category)">
-                <div class="hw_menucepat" >
+                <div class="hw_menucepat" [ngStyle]='{"background-color": category.background_color}' >
                   <img src="assets/msport/home/bola.png" />
                 </div>
               </a>

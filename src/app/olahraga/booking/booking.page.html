@@ -5,10 +5,10 @@
 
   <div style="width: 100%">
     <ion-item lines="none" class="header-title" style="margin-bottom: -10px">
-      <ion-col size="1">
+      <ion-col size="1" (click)="backClick()">
         <ion-icon
           class="backclik_black"
-          (click)="backClick()"
+          
           src="assets/icon/chevron-left.svg"
         ></ion-icon>
       </ion-col>
@@ -88,7 +88,7 @@
       />
       <ion-col class="hw-time" size="12">
         <label for="{{bookingTime.name}}">{{bookingTime.name}}</label
-        ><span class="harga">{{bookingTime.price}}</span>
+        ><span class="harga">{{bookingTime.price | currency:'Rp.':'symbol':'3.0' }}</span>
       </ion-col>
     </ion-item>
   </div>
@@ -98,7 +98,7 @@
   <ion-item lines="none">
     <ion-col size="6">
       <p class="hw-labelharga">Total Biaya</p>
-      <p class="hw-hargatotal">Rp.<span>{{totalPrice}}</span></p>
+      <p class="hw-hargatotal"><span>{{totalPrice| currency:'Rp.':'symbol':'3.0' }}</span></p>
     </ion-col>
     <ion-col
       size="6"

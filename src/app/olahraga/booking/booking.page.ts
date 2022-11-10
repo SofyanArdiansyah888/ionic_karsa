@@ -3,7 +3,7 @@
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
-import { NavParams } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 import { BookingTimeEntity } from 'src/app/entities/BookingTime.entity';
 import { CourtEntity } from 'src/app/entities/Court.entity';
 import { VenueEntity } from 'src/app/entities/Venue.entity';
@@ -21,6 +21,7 @@ import { isSequence } from 'src/app/services/utils.service';
 import { environment } from 'src/environments/environment';
 import { KeranjangPage } from './keranjang/keranjang.page';
 import { courtMock, venueMock } from './mock';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -29,7 +30,7 @@ import { courtMock, venueMock } from './mock';
 })
 export class BookingPage implements OnInit {
   court: CourtEntity;
-  venue: VenueEntity;
+  // venue: VenueEntity;
   bookingTimes: BookingTimeEntity[] = [];
   selectedTimes = [];
   selectedBookingTimes: BookingTimeEntity[] = [];
@@ -46,10 +47,11 @@ export class BookingPage implements OnInit {
     private apiService: ApiService,
     private alertService: AlertService,
     private modalService: ModalService,
+    private modalController: ModalController,
     navParams: NavParams
   ) {
     this.court = navParams.data.court;
-    this.venue = navParams.data.venue;
+    // this.venue = navParams.data.venue;
     this.init();
   }
 
@@ -127,11 +129,15 @@ export class BookingPage implements OnInit {
         this.selectedMonth,
         this.selectedDate
       ),
-      venue: this.venue,
+      // venue: this.venue,
       court: this.court,
     });
     // this.selectedBookingTimes = data.bookingTimes;
   }
 
   doRefresh(event) {}
+
+  backClick(){
+    this.modalController.dismiss()
+  }
 }

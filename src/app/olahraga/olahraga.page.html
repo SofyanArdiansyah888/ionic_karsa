@@ -26,14 +26,12 @@
     <ion-input placeholder="Lapangan Apaki Cari Bossku ?"></ion-input>
   </ion-item>
 
-  <div class="hw-list" style="width: 100%" *ngFor="let venue of venues">
-  
-      <ion-item class="hw-listlapangan" (click) = "venueClick(venue)">
+  <div *ngIf="!loading">
+    <div class="hw-list" style="width: 100%" *ngFor="let venue of venues">
+      <ion-item class="hw-listlapangan" (click)="venueClick(venue)">
         <ion-col size="9" style="padding: 0">
           <p class="hw-nama">{{venue.name}}</p>
-          <p class="hw-address">
-            {{venue.location}}
-          </p>
+          <p class="hw-address">{{venue.location}}</p>
 
           <p class="hw-fasilitas">{{venue?.facilities[0].name}}</p>
           <p class="hw-fasilitas">{{venue?.facilities[1].name}}</p>
@@ -45,6 +43,17 @@
           <img class="thumbnail" src="{{imageUrl}}{{venue.logo}}" />
         </ion-col>
       </ion-item>
+    </div>
+  </div>
 
+  <div *ngIf="loading">
+    <div
+      *ngFor="let item of [1,2,3,4,5]"
+      style="width: 90vw; margin: 20px auto; height: 90px"
+    >
+      <ion-thumbnail style="width: 100%" slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+    </div>
   </div>
 </ion-content>

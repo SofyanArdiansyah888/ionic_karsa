@@ -12,6 +12,7 @@ import { AlertService } from '../services/ionic/alert.service';
 export class Tab2Page {
   bookings: BookingEntity[] = [];
   imageUrl = environment.imageUrl;
+  loading = false;
   constructor(
     private apiService: ApiService,
     private alertService: AlertService
@@ -21,7 +22,9 @@ export class Tab2Page {
 
   async init() {
     try {
+      this.loading = true;
       const result = await this.apiService.bookings();
+      this.loading = false;
       this.bookings = result.data.data;
       console.log(this.bookings);
     } catch (error) {

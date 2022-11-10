@@ -22,6 +22,7 @@ export class OlahragaPage implements OnInit {
     background_color:'',
   };
   imageUrl = environment.imageUrl;
+  loading = false;
   constructor(navParams: NavParams,
     private modalController: ModalController,
     private modalService: ModalService,
@@ -30,9 +31,10 @@ export class OlahragaPage implements OnInit {
    }
 
   async ngOnInit() {
+    this.loading = true;
     const result =  await this.apiService.venues(this.category.id);
+    this.loading = false;
     this.venues = result.data.data;
-    console.log(this.venues);
   }
 
   backClick(){

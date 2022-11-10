@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { DetailCourtPage } from '../detail-court/detail-court.page';
 import { DetailPromoPage } from '../detail-promo/detail-promo.page';
@@ -31,7 +32,8 @@ export class Tab1Page {
     private modal: ModalService,
     private router: Router,
     private authService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private navConteroller: NavController
   ) {
     this.init();
   }
@@ -64,7 +66,13 @@ export class Tab1Page {
 
   courtClick(court: CourtEntity) {
     this.modal.show(DetailCourtPage, { court });
-  }
+  //   const queryString = Object.keys(court).map(key => key + '=' + court[key]).join('&');
+  //   this.navConteroller.navigateRoot('detail-court',{
+  //     queryParams:{
+  //     court:queryString
+  //   }
+  // });
+}
 
   kontakClick(){
     this.modal.show(KontakPage);

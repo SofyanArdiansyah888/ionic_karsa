@@ -1049,3 +1049,75 @@ ion-accordion-group{
   }
 }
 
+.header-title span {
+  position: relative;
+  display: block;
+  margin-bottom: 5px;
+}
+
+ion-footer{
+.pilih {
+  font-size: 12px;
+
+ span {
+  padding: unset !important;
+}
+}
+}
+
+ion-item.lokasi ion-col span.hw-btn-view {
+  padding: 2px 20px !important;
+}
+
+img.thumbnail {
+  min-height: 70px !important;
+}
+
+.hw-col-3 p{
+  font-size: 14px !important;
+}
+
+ion-radio {
+  width: 155px !important;
+}
+
+.hw-login-form ion-input {
+  margin-bottom: unset !important;
+  margin-top: unset;
+}
+
+ion-input {
+  margin-bottom: 15px !important;
+  margin-top: 10px;
+}
+
+div.hw-lupa {
+  bottom: 0px !important;
+}
+
+input:before {
+  margin-left: -30px !important;
+}
+
+ion-icon.mata-satu {
+  right: 15px !important;
+  top: 22px !important;
+}
+
+ion-item.hw-cari ion-icon {
+  margin-top: 0px !important;
+}
+
+@media only screen and (max-width: 360px) {
+  ion-radio {
+      width: 135px !important;
+  }
+  
+ion-footer ion-item p {
+  font-size: 16px !important;
+}
+
+.hw-jenis p {
+  font-size: 13px !important;
+}
+  }

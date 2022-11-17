@@ -9,6 +9,7 @@ import { ModalService } from 'src/app/services/ionic/modal.service';
 import { format } from 'date-fns';
 import { ApiService } from 'src/app/services/api.service';
 import { AlertService } from 'src/app/services/ionic/alert.service';
+import { BayarPage } from './bayar/bayar.page';
 @Component({
   selector: 'app-keranjang',
   templateUrl: './keranjang.page.html',
@@ -68,14 +69,15 @@ export class KeranjangPage implements OnInit {
       booking_times: [...this.bookingTimes],
       booking_date: format(this.bookingDate, 'yyyy-MM-dd'),
     };
+    this.modalService.show(BayarPage);
 
-    try {
-      this.apiService.doBooking(data);
-      this.alertService.success('Berhasil melakukan booking');
-      this.modalController.dismiss();
-      this.navController.navigateRoot('tabs/tab2');
-    } catch (error) {
-      this.alertService.fail(error.message);
-    }
+    // try {
+    //   this.apiService.doBooking(data);
+    //   this.alertService.success('Berhasil melakukan booking');
+    //   this.modalController.dismiss();
+    //   this.navController.navigateRoot('tabs/tab2');
+    // } catch (error) {
+    //   this.alertService.fail(error.message);
+    // }
   }
 }

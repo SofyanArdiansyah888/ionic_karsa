@@ -33,7 +33,7 @@ export class Tab1Page {
     private router: Router,
     private authService: AuthenticationService,
     private alertService: AlertService,
-    private navConteroller: NavController
+    private navConteroller: NavController,
   ) {
     this.init();
   }
@@ -61,11 +61,13 @@ export class Tab1Page {
   }
 
   promoClick(court: CourtEntity) {
-    this.modal.show(DetailPromoPage, { court });
+    this.router.navigateByUrl(`court/${court.id}/detail-promo`);
+    // this.modal.show(DetailPromoPage, { court });
   }
 
   courtClick(court: CourtEntity) {
-    this.modal.show(DetailCourtPage, { court });
+    this.router.navigateByUrl(`court/${court.id}/detail-court`);
+    // this.modal.show(DetailCourtPage, { court });
   //   const queryString = Object.keys(court).map(key => key + '=' + court[key]).join('&');
   //   this.navConteroller.navigateRoot('detail-court',{
   //     queryParams:{

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalService } from 'src/app/services/ionic/modal.service';
+import { InstruksiPage } from './instruksi/instruksi.page';
 
 @Component({
   selector: 'app-bayar',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BayarPage implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: ModalService,
+    private modalController: ModalController) { }
 
   ngOnInit() {
+  }
+
+  selanjutnyaClick(){
+    this.modalService.show(InstruksiPage);
+  }
+
+  backClick(){
+    // this.modalController.dismiss();
   }
 
 }

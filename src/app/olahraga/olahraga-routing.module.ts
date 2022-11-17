@@ -9,13 +9,13 @@ const routes: Routes = [
     component: OlahragaPage
   },
   {
-    path: 'singlesport',
+    path: 'singlesport/:id',
     loadChildren: () => import('./singlesport/singlesport.module').then( m => m.SinglesportPageModule)
   },
-  {
-    path: 'pilih',
-    loadChildren: () => import('./pilih/pilih.module').then( m => m.PilihPageModule)
-  },
+  // {
+  //   path: 'pilih/:id',
+  //   loadChildren: () => import('./singlesport/pilih/pilih.module').then( m => m.PilihPageModule)
+  // },
   {
     path: 'booking',
     loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)

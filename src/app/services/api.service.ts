@@ -14,12 +14,20 @@ export class ApiService {
     return this.api.get('categories');
   }
 
+  category(id) {
+    return this.api.get(`categories/${id}`);
+  }
+
   advertisings() {
     return this.api.get('advertisings');
   }
 
   courts() {
     return this.api.get('courts');
+  }
+
+  court(id) {
+    return this.api.get(`courts/${id}`);
   }
 
   promos(){
@@ -42,6 +50,10 @@ export class ApiService {
     const urlParams = new URLSearchParams();
     urlParams.set('category_id', categoryId);
     return this.api.get(`venues?${urlParams}`);
+  }
+
+  venue(id: any) {
+    return this.api.get(`venues/${id}`);
   }
 
   policies(){

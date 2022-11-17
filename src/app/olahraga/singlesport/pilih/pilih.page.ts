@@ -1,10 +1,13 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController, NavParams } from '@ionic/angular';
 import { CourtEntity } from 'src/app/entities/Court.entity';
 import { VenueEntity } from 'src/app/entities/Venue.entity';
+import { ApiService } from 'src/app/services/api.service';
 import { ModalService } from 'src/app/services/ionic/modal.service';
 import { environment } from 'src/environments/environment';
-import { BookingPage } from '../booking/booking.page';
+import { BookingPage } from '../../booking/booking.page';
 
 @Component({
   selector: 'app-pilih',
@@ -16,21 +19,24 @@ export class PilihPage implements OnInit {
   courts: CourtEntity[] = [];
   imageUrl = environment.imageUrl;
   constructor(
-    navParams: NavParams,
-    private modalController: ModalController,
-    private modalService: ModalService
+    private router: Router,
+    private apiService: ApiService,
+    private location: Location
   ) {
-    this.venue = navParams.data.venue;
-    this.courts = this.venue.courts;
   }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    const temp = this.router.url.split('/');
+    const result =  await this.apiService.venue(temp[4]);
+    this.venue = result?.data?.data;
+    this.courts = this.venue?.courts;
+  }
 
   backClick() {
-    this.modalController.dismiss();
+    this.location.back();
   }
 
   bookingClick(court: CourtEntity) {
-    this.modalService.show(BookingPage, { court, venue: this.venue });
+    this.router.navigateByUrl(`/court/${court.id}/booking`);
   }
 }

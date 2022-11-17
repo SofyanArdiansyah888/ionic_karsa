@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/naming-convention */
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { CourtEntity } from '../entities/Court.entity';
 import { BookingPage } from '../olahraga/booking/booking.page';
+import { ApiService } from '../services/api.service';
 import { AuthenticationService } from '../services/auth/authentication.service';
 import { AlertService } from '../services/ionic/alert.service';
 import { ModalService } from '../services/ionic/modal.service';
@@ -24,22 +27,32 @@ export class DetailCourtPage implements OnInit {
     sports:''
   };
   imageUrl = environment.imageUrl;
-  constructor(private modalController: ModalController,
+  constructor(
+    private modalController: ModalController,
     private authService: AuthenticationService,
+    private alertService: AlertService,
     private modalService: ModalService,
-    private alertService: AlertService) { }
+    private router: Router,
+    private apiService: ApiService,
+    private location: Location
+  ) {
+  }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const temp = this.router.url.split('/');
+    const result = await this.apiService.court(temp[2]);
+    this.court = result?.data?.data;
+  }
+
+  backClick() {
+    this.location.back();
   }
 
   bookingClick(){
     if(this.authService.isLoggedIn){
-      this.modalService.show(BookingPage,{court:this.court});
+      this.router.navigateByUrl(`court/${this.court.id}/booking`);
     }else{
       this.alertService.fail('Silahkan login terlebih dahulu untuk dapat membooking!');
     }
-  }
-  backClick() {
-    this.modalController.dismiss();
   }
 }

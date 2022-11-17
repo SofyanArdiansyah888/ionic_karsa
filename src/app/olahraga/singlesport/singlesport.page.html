@@ -132,7 +132,7 @@
       <p class="teks">Harga mulai</p>
     </ion-col>
     <ion-col style="text-align:right;" size="6">
-      <p>{{venue?.courts[0].price_description}}</p>
+      <p>{{venue?.courts?.length > 0 ? venue?.courts[0].price_description : ''}}</p>
     </ion-col>
 
   </ion-item>

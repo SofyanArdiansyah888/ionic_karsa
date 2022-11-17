@@ -6,12 +6,13 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
-  // {
-  //   path:'',
-  //   redirectTo:'/olahraga/booking'
-  // },
   {
-    path: 'olahraga',
+    path:'court/:id/booking',
+    loadChildren: () => import('./olahraga/booking/booking.module').then( m => m.BookingPageModule)
+  },
+
+  {
+    path: 'category/:id',
     loadChildren: () => import('./olahraga/olahraga.module').then( m => m.OlahragaPageModule)
   },
   {
@@ -51,11 +52,11 @@ const routes: Routes = [
     loadChildren: () => import('./coming/coming.module').then( m => m.ComingPageModule)
   },
   {
-    path: 'detail-promo',
+    path: 'court/:id/detail-promo',
     loadChildren: () => import('./detail-promo/detail-promo.module').then( m => m.DetailPromoPageModule)
   },
   {
-    path: 'detail-court',
+    path: 'court/:id/detail-court',
     loadChildren: () => import('./detail-court/detail-court.module').then( m => m.DetailCourtPageModule)
   }
 ];

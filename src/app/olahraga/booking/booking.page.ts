@@ -21,7 +21,8 @@ import { isSequence } from 'src/app/services/utils.service';
 import { environment } from 'src/environments/environment';
 import { KeranjangPage } from './keranjang/keranjang.page';
 import { courtMock, venueMock } from './mock';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-booking',
@@ -29,8 +30,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./booking.page.scss'],
 })
 export class BookingPage implements OnInit {
-  court: CourtEntity;
-  // venue: VenueEntity;
+  court: CourtEntity = {
+    name:'',
+    image:'',
+    description:'',
+    price_description:'',
+    created_at:''
+  };
+
   bookingTimes: BookingTimeEntity[] = [];
   selectedTimes = [];
   selectedBookingTimes: BookingTimeEntity[] = [];
@@ -48,22 +55,26 @@ export class BookingPage implements OnInit {
     private alertService: AlertService,
     private modalService: ModalService,
     private modalController: ModalController,
-    navParams: NavParams
+    private router: Router,
+    private location: Location
   ) {
-    this.court = navParams.data.court;
-    // this.venue = navParams.data.venue;
-    this.init();
   }
 
-  async init() {
+
+  async ngOnInit() {
     const result = await this.apiService.bookingTimes();
     this.bookingTimes = result.data.data;
     this.bookingTimes.map(
       (bookingTime) => (bookingTime.price = this.court.price)
     );
+    this.initCourt();
   }
 
-  ngOnInit() {}
+  async initCourt(){
+    const temp = this.router.url.split('/');
+    const result =  await this.apiService.court(temp[2]);
+    this.court = result?.data?.data;
+  }
 
   nextMonth() {
     this.selectedMonth += 1;
@@ -72,8 +83,8 @@ export class BookingPage implements OnInit {
       this.selectedYear += 1;
     }
     this.days = getAllDaysInMonth(this.selectedYear, this.selectedMonth);
-    console.log(this.days);
   }
+
   prevMonth() {
     this.selectedMonth -= 1;
     if (this.selectedMonth < 1) {
@@ -82,6 +93,7 @@ export class BookingPage implements OnInit {
     }
     this.days = getAllDaysInMonth(this.selectedYear, this.selectedMonth);
   }
+
   dateClick(day) {
     this.days.map((item) => {
       item.booked = false;
@@ -129,15 +141,16 @@ export class BookingPage implements OnInit {
         this.selectedMonth,
         this.selectedDate
       ),
-      // venue: this.venue,
       court: this.court,
     });
     // this.selectedBookingTimes = data.bookingTimes;
   }
 
-  doRefresh(event) {}
+  doRefresh(event) {
+    this.ngOnInit();
+  }
 
   backClick(){
-    this.modalController.dismiss()
+    this.location.back()
   }
 }

@@ -17,5 +17,6 @@ export interface CourtEntity {
   created_at?: string;
   venue?: VenueEntity;
   isPromo?: boolean;
+  promo?: string;
 }
 

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: `https://marhomy.halowebku.com/api`,
-  imageUrl:`https://marhomy.halowebku.com/storage/`
+  imageUrl:`https://marhomy.halowebku.com/uploads/`
 };
 
 /*

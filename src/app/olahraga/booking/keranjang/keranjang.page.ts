@@ -35,17 +35,19 @@ export class KeranjangPage implements OnInit {
     this.bookingTimes = data.bookingTimes;
     this.bookingDate = data.bookingDate;
     this.countTotalPrice();
-    console.log(this.court, 'court');
-    console.log(this.venue, 'venue');
-    console.log(this.bookingTimes, 'bookingTimes');
-    console.log(this.bookingDate, 'bookingDate');
+    // console.log(this.court, 'court');
+    // console.log(this.venue, 'venue');
+    // console.log(this.bookingTimes, 'bookingTimes');
+    // console.log(this.bookingDate, 'bookingDate');
   }
 
   ngOnInit() {}
 
   countTotalPrice() {
+    this.totalPrice = 0;
     this.bookingTimes.map((item) => {
-      this.totalPrice += item.price;
+      if(item.selected)
+      {this.totalPrice += item.price;}
     });
   }
 
@@ -54,22 +56,34 @@ export class KeranjangPage implements OnInit {
   }
 
   deleteClick(item: BookingTimeEntity) {
-    this.bookingTimes = this.bookingTimes.filter((temp) => temp.id !== item.id);
+    item.selected = false;
+    this.countTotalPrice();
   }
 
   backClick() {
     this.modalController.dismiss({
+      court: this.court,
+      venue: this.venue,
       bookingTimes: this.bookingTimes,
+      bookingDate: this.bookingDate
     });
   }
 
-  bookingClick() {
-    const data = {
-      court_id: this.court.id,
-      booking_times: [...this.bookingTimes],
-      booking_date: format(this.bookingDate, 'yyyy-MM-dd'),
-    };
-    this.modalService.show(BayarPage);
+  async selanjutnyaClick() {
+    this.modalService.show(BayarPage,{
+      court: this.court,
+      venue: this.venue,
+      bookingTimes: this.bookingTimes,
+      bookingDate: this.bookingDate
+    });
+  }
+
+  // bookingClick() {
+    // const data = {
+    //   court_id: this.court.id,
+    //   booking_times: [...this.bookingTimes],
+    //   booking_date: format(this.bookingDate, 'yyyy-MM-dd'),
+    // };
 
     // try {
     //   this.apiService.doBooking(data);
@@ -79,5 +93,5 @@ export class KeranjangPage implements OnInit {
     // } catch (error) {
     //   this.alertService.fail(error.message);
     // }
-  }
+  // }
 }

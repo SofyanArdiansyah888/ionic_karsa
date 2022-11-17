@@ -54,7 +54,6 @@ export class BookingPage implements OnInit {
     private apiService: ApiService,
     private alertService: AlertService,
     private modalService: ModalService,
-    private modalController: ModalController,
     private router: Router,
     private location: Location
   ) {
@@ -62,12 +61,15 @@ export class BookingPage implements OnInit {
 
 
   async ngOnInit() {
+    await this.initCourt();
     const result = await this.apiService.bookingTimes();
     this.bookingTimes = result.data.data;
     this.bookingTimes.map(
-      (bookingTime) => (bookingTime.price = this.court.price)
+      (bookingTime) => {
+        bookingTime.price = this.court.price;
+        bookingTime.selected = false;
+      }
     );
-    this.initCourt();
   }
 
   async initCourt(){
@@ -107,24 +109,20 @@ export class BookingPage implements OnInit {
     return getMonthName(month);
   }
 
-  onCheckboxChange(event) {
+  onCheckboxChange(event, test) {
     if (event.checked) {
-      this.selectedTimes.push(event.value);
+      test.selected = true;
     } else {
-      this.selectedTimes = this.selectedTimes.filter(
-        (id) => event.value !== id
-      );
+      test.selected = false;
     }
+    this.countTotalPrice();
+  }
 
-    //COUNT TOTAL PRICE
+  countTotalPrice(){
     this.totalPrice = 0;
-    this.selectedBookingTimes = [];
-    this.selectedTimes.map((id) => {
-      const temp = this.bookingTimes.find(
-        (bookingTime) => bookingTime.id == id
-      );
-      this.selectedBookingTimes.push(temp);
-      this.totalPrice += temp.price;
+    this.bookingTimes.map((times) => {
+      if(times.selected)
+        {this.totalPrice += times.price}
     });
   }
 
@@ -135,7 +133,7 @@ export class BookingPage implements OnInit {
       return;
     }
     const { data } = await this.modalService.show(KeranjangPage, {
-      bookingTimes: this.selectedBookingTimes,
+      bookingTimes: this.bookingTimes,
       bookingDate: new Date(
         this.selectedYear,
         this.selectedMonth,
@@ -143,7 +141,8 @@ export class BookingPage implements OnInit {
       ),
       court: this.court,
     });
-    // this.selectedBookingTimes = data.bookingTimes;
+    this.bookingTimes = data.bookingTimes;
+    this.countTotalPrice();
   }
 
   doRefresh(event) {

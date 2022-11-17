@@ -35,7 +35,7 @@
       </ion-col>
     </ion-item>
     <ion-item lines="none" *ngFor="let item of bookingTimes">
-      <ion-col class="hw-reviewtime hw-time" size="12">
+      <ion-col class="hw-reviewtime hw-time" size="12" *ngIf="item.selected">
         <label class="waktunya">{{item.name}}</label
         ><span class="harga">{{item.price| currency:'Rp.':'symbol':'3.0' }}</span>
         <ion-icon
@@ -117,10 +117,10 @@
       size="6"
       style="margin: 0 auto; float: none; text-align: right; padding: 0"
     >
-      <ion-button class="pilih" (click) = "bookingClick()">
+      <ion-button class="pilih" (click) = "selanjutnyaClick()">
         <span>
           <a style="color: #fff" >
-            Booking
+            Selanjutnya
           </a>
         </span>
       </ion-button>

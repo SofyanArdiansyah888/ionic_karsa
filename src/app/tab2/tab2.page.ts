@@ -26,7 +26,6 @@ export class Tab2Page {
       const result = await this.apiService.bookings();
       this.loading = false;
       this.bookings = result.data.data;
-      console.log(this.bookings);
     } catch (error) {
       this.alertService.fail(error.message);
     }

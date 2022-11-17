@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/quotes */
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -33,7 +34,6 @@ export class Tab1Page {
     private router: Router,
     private authService: AuthenticationService,
     private alertService: AlertService,
-    private navConteroller: NavController,
   ) {
     this.init();
   }
@@ -50,7 +50,7 @@ export class Tab1Page {
     this.advertisings = tempAdvertising.data.data;
     this.categories = tempCategory.data.data;
     this.courts = tempCourt.data.data;
-    this.promos = this.courts.filter((court) => court.isPromo );
+    this.promos = this.courts.filter((court) => court.promo !== "" );
   }
 
   async doRefresh(event: any) {
@@ -62,18 +62,10 @@ export class Tab1Page {
 
   promoClick(court: CourtEntity) {
     this.router.navigateByUrl(`court/${court.id}/detail-promo`);
-    // this.modal.show(DetailPromoPage, { court });
   }
 
   courtClick(court: CourtEntity) {
     this.router.navigateByUrl(`court/${court.id}/detail-court`);
-    // this.modal.show(DetailCourtPage, { court });
-  //   const queryString = Object.keys(court).map(key => key + '=' + court[key]).join('&');
-  //   this.navConteroller.navigateRoot('detail-court',{
-  //     queryParams:{
-  //     court:queryString
-  //   }
-  // });
 }
 
   kontakClick(){

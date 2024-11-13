@@ -45,9 +45,9 @@ export class BookingPage implements OnInit {
   totalPrice = 0;
 
   // DATE
-  selectedDate = today();
-  selectedMonth = thisMonth();
-  selectedYear = thisYear();
+  selectedDate = Number(today());
+  selectedMonth = Number(thisMonth());
+  selectedYear = Number(thisYear());
   days = getAllDaysInMonth(this.selectedYear, this.selectedMonth);
 
   constructor(
@@ -122,7 +122,7 @@ export class BookingPage implements OnInit {
     this.totalPrice = 0;
     this.bookingTimes.map((times) => {
       if(times.selected)
-        {this.totalPrice += times.price}
+        {this.totalPrice += Number(times.price)}
     });
   }
 

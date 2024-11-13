@@ -4,57 +4,61 @@
    height: 100px;
 /*     background: red; */
    position: relative;
-   overflow-x: scroll;
+   overflow-x: auto;
 }
 
 .inner-div{
- width:2200px;
+ width:100%;
  
 }
 
 
-.outer-div ul{
- list-style:none;
- margin:0;
- padding:0;
- display:block;
-}
-
-.outer-div ul li{
- float:left;
- margin:10px;
- height:100px;
- width:50px; 
- font-family:'arial';
- font-size:16px;
- text-align:center;
- transition:all 0.5s ease-in-out;
-}
-
-.outer-div ul li span{
- display:block;
- color:#8d8d8d;
- font-family:'arial';
- font-size:14px;
- margin:10px 0;
-}
-
-.outer-div ul li.active span{
+.outer-div {
+   overflow-x: auto; /* Enable horizontal scrolling */
+   white-space: nowrap; /* Prevent line breaks */
+   padding: 10px; /* Optional: for spacing */
+ }
+ 
+ .outer-div ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex; /* Use flex to align items horizontally */
+   width: max-content; /* Ensure the ul takes up the necessary width */
+ }
+ 
+ .outer-div ul li {
+   display: inline-block; /* Ensure each item is treated as an inline-block */
+   margin: 10px;
+   height: 100px;
+   width: 50px;
+   font-family: 'arial';
+   font-size: 16px;
+   text-align: center;
+   transition: all 0.5s ease-in-out;
+ }
+ 
+ .outer-div ul li span {
    display: block;
-   color: #fff;
-   font-family: "arial";
+   color: #8d8d8d;
+   font-family: 'arial';
    font-size: 14px;
    margin: 10px 0;
-}
-
-.outer-div ul li.active{
+ }
+ 
+ .outer-div ul li.active span {
+   color: #fff;
+ }
+ 
+ .outer-div ul li.active {
    font-size: 16px;
    width: 55px;
    background: #F15162;
    height: 65px;
    color: #fff;
    border-radius: 10px;
-}
+ }
+ 
 
 .hw-empty-space {
    width: 100%;
@@ -315,3 +319,19 @@ p.hw-hargatotal {
       font-size: 18px;
   }
 }
+.disabled {
+   color: gray;
+   pointer-events: none;
+   opacity: 0.6;
+ }
+ 
+ .active {
+   font-weight: bold;
+ }
+ 
+ .booked {
+   background-color: lightblue;
+ }
+ 
+
+ 

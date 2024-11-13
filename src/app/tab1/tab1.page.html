@@ -42,7 +42,7 @@
             #homeSlide
           >
             <ion-slide *ngFor="let advertising of advertisings">
-              <img src="{{imageUrl}}advertising/{{advertising.image}}" />
+              <img src="{{imageUrl}}/{{advertising.image}}" />
             </ion-slide>
           </ion-slides>
         </div>
@@ -84,7 +84,7 @@
             <ion-col *ngFor="let category of categories" class="scroll-col" >
               <a [routerLink]="['/category', category.id]" >
                 <div class="hw_menucepat" [ngStyle]='{"background-color": category.background_color}' >
-                  <img src="{{imageUrl}}category/{{category.image}}" />
+                  <img src="{{imageUrl}}/{{category.image}}" />
                 </div>
               </a>
               <p class="title-produk ion-text-center">
@@ -109,7 +109,7 @@
             <!-- COURT -->
             <ion-col *ngFor="let court of courts" class="scroll-col">
               <div *ngIf="!court.isPromo" class="hw_tokopilihan" (click)="courtClick(court)">
-                <img class="gambarmitra" src="{{imageUrl}}court/{{court.image}}" />
+                <img class="gambarmitra" src="{{imageUrl}}/{{court.image}}" />
                 <ion-item lines="none">
                   <p class="nama-lap diskon">{{court.name}}</p>
                   <p class="fitur-tdktau" slot="end">BO</p>
@@ -133,7 +133,7 @@
           <ion-row>
             <ion-col *ngFor="let promo of promos" class="scroll-col">
               <div class="hw_tokopilihan hw_berita" (click)="promoClick(promo)">
-                <img class="gambarmitra" src="{{imageUrl}}court/{{promo.image}}" />
+                <img class="gambarmitra" src="{{imageUrl}}/{{promo.image}}" />
                 <ion-item lines="none">
                   <div>
                     <p class="judul" style="margin-bottom:0px ;">{{promo.name}}</p>

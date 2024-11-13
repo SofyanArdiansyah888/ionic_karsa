@@ -27,20 +27,24 @@
   </ion-item>
 
   <div *ngIf="!loading">
+    <div style="text-align:center"  *ngIf="venues.length === 0">
+      <p>Belum ada data</p>
+    </div>
     <div class="hw-list" style="width: 100%" *ngFor="let venue of venues">
       <ion-item class="hw-listlapangan" (click)="venueClick(venue)">
         <ion-col size="9" style="padding: 0">
           <p class="hw-nama">{{venue.name}}</p>
           <p class="hw-address">{{venue.location}}</p>
-
+          
           <p class="hw-fasilitas">{{venue?.facilities[0].name}}</p>
           <p class="hw-fasilitas">{{venue?.facilities[1].name}}</p>
+          <p class="hw-fasilitas">dst...</p>
 
           <p class="hw-nama harga">{{venue?.courts[0].price_description}}</p>
         </ion-col>
 
         <ion-col size="3">
-          <img class="thumbnail" src="{{imageUrl}}venue/{{venue.logo}}" />
+          <img class="thumbnail" src="{{imageUrl}}/{{venue.logo}}" />
         </ion-col>
       </ion-item>
     </div>

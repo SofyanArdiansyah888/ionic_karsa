@@ -37,7 +37,7 @@
         </ion-col>
 
         <ion-col size="3">
-          <img class="thumbnail" src="{{imageUrl}}court/{{court.image}}" />
+          <img class="thumbnail" src="{{imageUrl}}/{{court.image}}" />
         </ion-col>
       </ion-item>
     </a>
@@ -69,14 +69,18 @@
       <div class="outer-div">
         <div class="inner-div">
           <ul id="dates">
-            <li *ngFor="let day of days" [ngClass]="{'active booked' : day.booked}" (click)="dateClick(day)">
-              <span>{{day.day}}</span>
-              {{day.date}}
+            <li 
+              *ngFor="let day of days" 
+              [ngClass]="{'active booked': day.booked, 'disabled': day.disabled}" 
+              (click)="!day.disabled && dateClick(day)">
+              <span>{{ day.day }}</span>
+              {{ day.date }}
             </li>
           </ul>
         </div>
       </div>
     </ion-item>
+    
   </div>
 
   <div class="hw-jamnya" id="pilih-jam">

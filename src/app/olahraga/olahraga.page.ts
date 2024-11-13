@@ -40,6 +40,8 @@ export class OlahragaPage implements OnInit {
     const result =  await this.apiService.venues(temp[2]);
     const category = await this.apiService.category(temp[2]);
     this.category = category?.data?.data;
+
+    console.log(this.category)
     this.loading = false;
     this.venues = result.data.data;
   }

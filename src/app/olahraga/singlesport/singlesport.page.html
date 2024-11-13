@@ -20,13 +20,13 @@
             <!-- SLIDER  -->
             <ion-slides  autoplay="5000" loop="true" speed="300" pager="true" [options]="slideOptsOne" class="slider-atas" #homeSlide>
               <ion-slide *ngIf="venue.image1 !== ''">
-                <img src="{{imageUrl}}venue/{{venue.image1}}">
+                <img src="{{imageUrl}}/{{venue.image1}}">
               </ion-slide>
               <ion-slide *ngIf="venue.image2 !== ''">
-                <img src="{{imageUrl}}venue/{{venue.image2}}">
+                <img src="{{imageUrl}}/{{venue.image2}}">
               </ion-slide>
               <ion-slide *ngIf="venue.image3 !== ''">
-                <img src="{{imageUrl}}venue/{{venue.image3}}">
+                <img src="{{imageUrl}}/{{venue.image3}}">
               </ion-slide>
             </ion-slides>
           </div>
@@ -78,10 +78,10 @@
       Fasilitas
     </p>
   </ion-item>
-  <ion-item class="fasilitas" lines="none">
-    <ion-col class="kiri" size="6" *ngFor="let facility of venue.facilities"> 
+  <ion-item class="fasilitas" lines="none" style="overflow-x:auto;">
+    <ion-col class="kiri" size="5" *ngFor="let facility of venue.facilities"> 
       <div class="isi-fasilitas">
-        <img src="{{imageUrl}}facility/{{facility.image}}"/><span>{{facility.name}}</span>
+        <img src="{{imageUrl}}/{{facility.image}}"/><span>{{facility.name}}</span>
       </div>
     </ion-col>
     </ion-item>

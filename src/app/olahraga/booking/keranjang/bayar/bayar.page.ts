@@ -45,7 +45,7 @@ export class BayarPage implements OnInit {
     this.totalPrice = 0;
     this.bookingTimes.map((item) => {
       if (item.selected) {
-        this.totalPrice += item.price;
+        this.totalPrice += Number(item.price);
       }
     });
   }

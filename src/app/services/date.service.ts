@@ -1,20 +1,30 @@
-export const today = () => new Date().getDate();
-export const thisMonth = () => new Date().getMonth();
-export const thisYear = () => new Date().getFullYear();
+import * as moment from "moment";
 
-export const localDate = (date, month, year) => new Date(new Date(year, month, date).toLocaleString());
+export const today = () => moment().date();
+export const thisMonth = () => moment().month();
+export const thisYear = () => moment().year();
+
+export const localDate = (date, month, year) => {
+  return moment({ year, month, date });
+};
+
 
 export const getAllDaysInMonth = (year: number, month: number) => {
-  const tempDate = localDate(1, month,year);
+  const tempDate = moment([year, month]).startOf('month');
+  const endDate = moment([year, month]).endOf('month');
   const dates = [];
-  while (tempDate.getMonth() === month) {
+  const today = moment().startOf('day'); // Get today’s date
+
+  // While tempDate is still in the same month
+  while (tempDate <= endDate) {
     dates.push({
-      day: getDayName(tempDate.getDay()),
-      date: tempDate.getDate(),
+      day: tempDate.format('ddd'), // e.g., Mon
+      date: tempDate.date(),
       booked: false,
-      disabled: today() > tempDate.getDate() ? true : false
+      disabled: today.isAfter(tempDate, 'day'), // Disable past dates
+      isToday: today.isSame(tempDate, 'day') // Check if it's today
     });
-    tempDate.setDate(tempDate.getDate() + 1);
+    tempDate.add(1, 'day');
   }
 
   return dates;

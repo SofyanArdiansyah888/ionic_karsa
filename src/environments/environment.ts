@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: `https://karsa.banisadar.com/api/`,
-  imageUrl:`https://karsa.banisadar.com/uploads/`
+  baseUrl: `https://karsa.banisadar.com/api`,
+  imageUrl:`https://karsa.banisadar.com/storage`
 };
 
 /*

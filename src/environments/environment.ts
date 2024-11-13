@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: `https://marhomy.halowebku.com/api`,
-  imageUrl:`https://marhomy.halowebku.com/uploads/`
+  baseUrl: `https://karsa.banisadar/api`,
+  imageUrl:`https://karsa.banisadar/uploads/`
 };
 
 /*

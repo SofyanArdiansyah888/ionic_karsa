@@ -8,12 +8,12 @@ const routes: Routes = [
   },
   {
     path:'court/:id/booking',
-    loadChildren: () => import('./pages/olahraga/booking/booking/booking.module').then(m => m.BookingPageModule)
+    loadChildren: () => import('./pages/kategori/booking/booking/booking.module').then(m => m.BookingPageModule)
   },
 
   {
     path: 'category/:id',
-    loadChildren: () => import('./pages/olahraga/olahraga/olahraga.module').then(m => m.OlahragaPageModule)
+    loadChildren: () => import('./pages/kategori/kategori/kategori.module').then(m => m.KategoriPageModule)
   },
   {
     path: 'detailpesanan',

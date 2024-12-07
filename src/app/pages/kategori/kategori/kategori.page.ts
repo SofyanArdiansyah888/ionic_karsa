@@ -11,10 +11,10 @@ import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-olahraga',
-  templateUrl: './olahraga.page.html',
-  styleUrls: ['./olahraga.page.scss'],
+  templateUrl: './kategori.page.html',
+  styleUrls: ['./kategori.page.scss'],
 })
-export class OlahragaPage implements OnInit {
+export class KategoriPage implements OnInit {
   venues: VenueEntity[] = [];
   category: CategoryEntity = {
     id:0,

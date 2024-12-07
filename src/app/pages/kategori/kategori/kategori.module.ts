@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { OlahragaPageRoutingModule } from './olahraga-routing.module';
+import { KategoriPageRoutingModule } from './kategori-routing.module';
 
-import { OlahragaPage } from './olahraga.page';
+import { KategoriPage } from './kategori.page';
 import {BaseHeaderComponent} from '../../../components/base-header/base-header.component';
 import {SkeletonListComponent} from '../../../components/skeleton-list/skeleton-list.component';
 
@@ -15,9 +15,9 @@ import {SkeletonListComponent} from '../../../components/skeleton-list/skeleton-
     CommonModule,
     FormsModule,
     IonicModule,
-    OlahragaPageRoutingModule,
+    KategoriPageRoutingModule,
     BaseHeaderComponent,
   ],
-  declarations: [OlahragaPage, SkeletonListComponent]
+  declarations: [KategoriPage, SkeletonListComponent]
 })
-export class OlahragaPageModule {}
+export class KategoriPageModule {}

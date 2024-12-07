@@ -6,7 +6,7 @@ import {AdvertisingEntity} from '../../entities/Advertising.entity';
 import {CategoryEntity} from '../../entities/Category.entity';
 import {CourtEntity} from '../../entities/Court.entity';
 import {KontakPage} from '../kontak/kontak.page';
-import {OlahragaPage} from 'src/app/pages/olahraga/olahraga/olahraga.page';
+import {KategoriPage} from 'src/app/pages/kategori/kategori/kategori.page';
 import {ApiService} from '../../services/api.service';
 import {AuthenticationService} from '../../services/auth/authentication.service';
 import {AlertService} from '../../services/ionic/alert.service';
@@ -71,7 +71,7 @@ export class Tab1Page {
 
   kategoriClick(category: CategoryEntity){
     if(this.authService.isLoggedIn){
-      this.modal.show(OlahragaPage,{category});
+      this.modal.show(KategoriPage,{category});
     }else{
       this.alertService.fail('Silahkan login terlebih dahulu untuk dapat membooking!');
     }

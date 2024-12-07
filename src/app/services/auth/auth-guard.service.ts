@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRoute, Router, UrlTree } from '@angular/router';
-import { LoginPage } from 'src/app/auth/login/login.page';
+import { LoginPage } from 'src/app/pages/auth/login/login.page';
 import { ModalService } from '../ionic/modal.service';
 import { AuthenticationService } from './authentication.service';
 @Injectable({

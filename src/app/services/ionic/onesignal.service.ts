@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { OneSignal } from "@ionic-native/onesignal/ngx";
 import { DetailRiwayatPage } from "src/app/pages/history/detail-riwayat/detail-riwayat.page";
 
-import { environment } from "src/environments/environment";
+import { environment } from "src/app/environments/environment";
 import { ApiService } from "../api/api.service";
 import { DatabaseService } from "../database/database.service";
 import { ModalService } from "./modal.service";

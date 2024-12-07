@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import axios from 'axios';
-import { environment } from '../../environments/environment';
+import { environment } from '../environments/environment';
 import { DatabaseService } from './database/database.service';
 
 // BASE CONFIGURATION

@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 import { NativeGeocoderOptions } from "@ionic-native/native-geocoder/ngx";
-import { environment } from "src/environments/environment";
+import { environment } from "src/app/environments/environment";
 import { BaseconfigService } from "../api/baseconfig.service";
 declare let google: any;
 

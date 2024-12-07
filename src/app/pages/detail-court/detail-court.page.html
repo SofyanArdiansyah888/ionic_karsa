@@ -1,36 +1,23 @@
 <ion-content fullscreen="true">
-  <div style="width: 100%">
-    <ion-item lines="none" class="header-title" style="margin-bottom: -10px">
-      <ion-col size="1">
-        <ion-icon
-          class="backclik_black"
-          (click)="backClick()"
-          src="assets/icon/chevron-left.svg"
-        ></ion-icon>
-      </ion-col>
-      <ion-col size="11">
-        <p class="title" style="margin: 20px 0 0px 10px">Lapangan</p>
-        <p style="margin: 0">
-          <span style="padding-left: 10px"
-            >Silahkan mencari lapangan pilihan kamu</span
-          >
-        </p>
-      </ion-col>
-    </ion-item>
-  </div>
-
+  <app-base-header
+    (handleBackClick)="backClick()"
+    title="Lapangan"
+    description="Silahkan mencari lapangan pilihan kamu"
+  >
+  </app-base-header>
+  
   <!--Datanya-->
   <div class="datanya">
     <ion-item class="hw-lapangan" lines="none">
-      <img class="hw-ganbarnya" src="{{imageUrl}}/{{court.image}}" />
+      <img class="hw-ganbarnya" src="{{imageUrl}}/{{court.image}}"/>
     </ion-item>
 
     <!--Nama Lapangan & Deskripsi-->
     <ion-item class="hw-lapangan produk-desc" lines="none">
       <ion-col>
-        <p class="hw-nama-lapangan">{{court.name}}</p>
+        <p class="hw-nama-lapangan">{{ court.name }}</p>
         <p class="hw-deskripsi">
-          {{court.description}}
+          {{ court.description }}
         </p>
       </ion-col>
     </ion-item>
@@ -47,7 +34,7 @@
             <p>Cabang Olahraga</p>
           </div>
           <div class="hw-col6 teks-kanan">
-            <p>{{court.sports}}</p>
+            <p>{{ court.sports }}</p>
           </div>
         </div>
 
@@ -56,7 +43,7 @@
             <p>Jenis Lapangan</p>
           </div>
           <div class="hw-col6 teks-kanan">
-            <p>{{court.field_type}}</p>
+            <p>{{ court.field_type }}</p>
           </div>
         </div>
 
@@ -65,7 +52,7 @@
             <p>Jenis Alas</p>
           </div>
           <div class="hw-col6 teks-kanan">
-            <p>{{court.pedestal_type}}</p>
+            <p>{{ court.pedestal_type }}</p>
           </div>
         </div>
         <div style="border: 1px solid #ebebeb"></div>
@@ -75,7 +62,7 @@
     <!--Harganya-->
     <ion-item lines="none">
       <ion-col>
-        <p class="harga">{{court.price_description}}</p>
+        <p class="harga">{{ court.price_description }}</p>
         <span class="hw-btn" (click)="bookingClick()">Booking</span>
       </ion-col>
     </ion-item>

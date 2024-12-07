@@ -1,145 +1,74 @@
-ion-skeleton-text {
-  --border-radius: 10px;
-  height: 90px;
-  // --background: rgba(188, 0, 255, 0.065);
-  // --background-rgb: 188, 0, 255;
-}
-
-
-.backclik_black {
-    position: absolute;
-    top: -7px;
-    background: #FFDDE0;
-    padding: 10px;
-    left: 0px;
-    border-radius: 100%;
-    font-size: 18px;
-}
-
-  ion-item {
-    --padding-start: 20px;
-    padding-right: 20px;
-    --inner-padding-end: 0px;
-
-    p {
-      font-family: 'Metropolis-Semi';
-      font-size: 18px;
-    }
-
-    .kategori,
-    .harga {
-      color: #6257A0;
-    }
-
-    .kategori {
-      font-size: 12px;
-    }
-
-    div[slot=end] {
-      padding-top: 21px;
-    }
-  }
-
-  .ion-padding {
-    padding-inline-start: 20px;
-    padding-inline-end: 20px;
-  }
-
-
-  img.thumbnail {
-    min-height: 90px;
-    border-radius: 15px;
-    object-fit: fill;
-    box-shadow: 0px 3px 5px #0006;
-}
 
 ion-item.hw-listlapangan {
-    margin-top: 20px;
-    align-items: flex-start;
+  margin-top: 20px;
+  align-items: flex-start;
 
-    p.hw-nama {
-        margin: 5px;
+  p.hw-nama {
+    margin: 5px;
     font-size: 14px;
     line-height: 1.2;
     font-family: "Metropolis-Semi";
     letter-spacing: 0.5px;
     color: #000;
     opacity: 1;
-    }
+  }
 
-    p.hw-address {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-    p, span {
-      margin: 12px 5px;
-        font-size: 12px;
-        line-height: 1.2;
-        font-family: "Metropolis-Regular";
-        letter-spacing: 0.2px;
-        color: #656565;
-        opacity: 0.6;
-    }
-    p.hw-fasilitas {
-        background: url(/src/assets/olahraga/circle-check-solid.svg) no-repeat 100% 100%;
-        background-position: left center;
-        padding-left: 20px;
-            opacity: 1;
-    color: #989aa2;
-    }
-    p.harga{
-      margin-bottom: 10px;
-    }
-}
+  p.hw-address {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
 
-ion-item.header-title p {
-    color: #000000;
-    font-family: "Metropolis-Bold";
-    font-size: 18px;
-    margin-left: 20px;
-}
-
-span {
-    font-family: "Metropolis-Regular";
-    color: #A5A5A5;
-    font-size: 14px;
-}
-
-span.hw-btn {
-    position: absolute;
-    right: 0;
-    top: 10px;
-    background: #a8afab;
-    color: #fff;
-    padding: 5px 14px;
-    border-radius: 5px;
+  p, span {
+    margin: 12px 5px;
     font-size: 12px;
-    letter-spacing: 0.5px;
+    line-height: 1.2;
+    font-family: "Metropolis-Regular";
+    letter-spacing: 0.2px;
+    color: #656565;
+    opacity: 0.6;
+  }
+
+  p.hw-fasilitas {
+    background: url(/src/assets/olahraga/circle-check-solid.svg) no-repeat 100% 100%;
+    background-position: left center;
+    padding-left: 20px;
+    opacity: 1;
+    color: #989aa2;
+  }
+
+  p.harga {
+    margin-bottom: 10px;
+  }
 }
+
+
+
+
 
 ion-item.hw-cari {
-    ion-icon {
-        font-size: 22px;
-        position: absolute;
-        z-index: 5;
-        margin-top: 20px;
-        margin-left: 15px;
-        color: #80808087;
-    }
-    ion-input {
-        font-size: 12px;
-        border: 1px solid #D4D4D4;
-        border-radius: 25px;
-        margin-top: 20px;
-        padding: 5px 5px 5px 45px !important;
-        background: #FCFCFC;
-        font-family: "Metropolis-Regular";
-        font-weight: normal;
-        color: #A5A5A5;
-    }
+  ion-icon {
+    font-size: 22px;
+    position: absolute;
+    z-index: 5;
+    margin-top: 20px;
+    margin-left: 15px;
+    color: #80808087;
+  }
+
+  ion-input {
+    font-size: 12px;
+    border: 1px solid #D4D4D4;
+    border-radius: 25px;
+    margin-top: 20px;
+    padding: 5px 5px 5px 45px !important;
+    background: #FCFCFC;
+    font-family: "Metropolis-Regular";
+    font-weight: normal;
+    color: #A5A5A5;
+  }
 }
 

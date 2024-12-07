@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { OlahragaPageRoutingModule } from './olahraga-routing.module';
 
 import { OlahragaPage } from './olahraga.page';
+import {BaseHeaderComponent} from '../../../components/base-header/base-header.component';
+import {SkeletonListComponent} from '../../../components/skeleton-list/skeleton-list.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OlahragaPageRoutingModule
+    OlahragaPageRoutingModule,
+    BaseHeaderComponent,
   ],
-  declarations: [OlahragaPage]
+  declarations: [OlahragaPage, SkeletonListComponent]
 })
 export class OlahragaPageModule {}

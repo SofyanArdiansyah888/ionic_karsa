@@ -58,40 +58,40 @@
                 >
                 </ion-input>
               </ion-item>
-              <ion-item lines="none">
-                <ion-label position="floating" mode="ios">Email</ion-label>
-                <ion-input
-                  enterkeyhint="go"
-                  (keyup.enter)="register(form.value)"
-                  ngModel
-                  name="email"
-                  type="email"
-                >
-                </ion-input>
-                <span class="error" [hidden]="emailerror === ''"
-                  >{{emailerror}}</span
-                >
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label position="floating" mode="ios">Password</ion-label>
-                <ion-input
-                  enterkeyhint="go"
-                  (keyup.enter)="register(form.value)"
-                  ngModel
-                  name="password"
-                  [type]="showPassword ? 'text' : 'password'"
-                ></ion-input>
-                <ion-icon
-                  class="mata-satu"
-                  size="default"
-                  slot="end"
-                  [name]="showPassword ? 'eye-off' : 'eye'"
-                  (click)="togglePassword()"
-                ></ion-icon>
-                <span class="error" [hidden]="passerror === ''"
-                  >{{passerror}}</span
-                >
-              </ion-item>
+<!--              <ion-item lines="none">-->
+<!--                <ion-label position="floating" mode="ios">Email</ion-label>-->
+<!--                <ion-input-->
+<!--                  enterkeyhint="go"-->
+<!--                  (keyup.enter)="register(form.value)"-->
+<!--                  ngModel-->
+<!--                  name="email"-->
+<!--                  type="email"-->
+<!--                >-->
+<!--                </ion-input>-->
+<!--                <span class="error" [hidden]="emailerror === ''"-->
+<!--                  >{{emailerror}}</span-->
+<!--                >-->
+<!--              </ion-item>-->
+<!--              <ion-item lines="none">-->
+<!--                <ion-label position="floating" mode="ios">Password</ion-label>-->
+<!--                <ion-input-->
+<!--                  enterkeyhint="go"-->
+<!--                  (keyup.enter)="register(form.value)"-->
+<!--                  ngModel-->
+<!--                  name="password"-->
+<!--                  [type]="showPassword ? 'text' : 'password'"-->
+<!--                ></ion-input>-->
+<!--                <ion-icon-->
+<!--                  class="mata-satu"-->
+<!--                  size="default"-->
+<!--                  slot="end"-->
+<!--                  [name]="showPassword ? 'eye-off' : 'eye'"-->
+<!--                  (click)="togglePassword()"-->
+<!--                ></ion-icon>-->
+<!--                <span class="error" [hidden]="passerror === ''"-->
+<!--                  >{{passerror}}</span-->
+<!--                >-->
+<!--              </ion-item>-->
 
               <ion-item lines="none">
                 <input type="checkbox" value="terima" />

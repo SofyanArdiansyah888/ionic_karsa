@@ -28,34 +28,47 @@
             </ion-row>
             <div class="hw-login-form">
               <ion-item lines="none">
-                <ion-label position="floating" mode="ios">Email</ion-label>
+                <ion-label position="floating" mode="ios"
+                >Nomor Handphone</ion-label
+                >
                 <ion-input
-                  class="hw-input"
                   enterkeyhint="go"
                   (keyup.enter)="login(loginForm.value)"
-                  name="email"
-                  type="email"
                   ngModel
+                  name="telepon"
+                  type="number"
                 >
                 </ion-input>
               </ion-item>
+<!--              <ion-item lines="none">-->
+<!--                <ion-label position="floating" mode="ios">Email</ion-label>-->
+<!--                <ion-input-->
+<!--                  class="hw-input"-->
+<!--                  enterkeyhint="go"-->
+<!--                  (keyup.enter)="login(loginForm.value)"-->
+<!--                  name="email"-->
+<!--                  type="email"-->
+<!--                  ngModel-->
+<!--                >-->
+<!--                </ion-input>-->
+<!--              </ion-item>-->
 
-              <ion-item lines="none">
-                <ion-label position="floating" mode="ios">Password</ion-label>
-                <ion-input
-                  class="hw-input"
-                  enterkeyhint="go"
-                  (keyup.enter)="login(loginForm.value)"
-                  name="password"
-                  [type]="showPassword ? 'text' : 'password'"
-                  ngModel
-                ></ion-input>
+<!--              <ion-item lines="none">-->
+<!--                <ion-label position="floating" mode="ios">Password</ion-label>-->
+<!--                <ion-input-->
+<!--                  class="hw-input"-->
+<!--                  enterkeyhint="go"-->
+<!--                  (keyup.enter)="login(loginForm.value)"-->
+<!--                  name="password"-->
+<!--                  [type]="showPassword ? 'text' : 'password'"-->
+<!--                  ngModel-->
+<!--                ></ion-input>-->
                 <!--<ion-icon class="eye" size="default" slot="end" [name]="passwordToggleIcon" (click)="togglePassword()">
               </ion-icon> -->
-                <div class="hw-lupa" (click)="lupakiAlert()">
-                  <span>Lupa?</span>
-                </div>
-              </ion-item>
+<!--                <div class="hw-lupa" (click)="lupakiAlert()">-->
+<!--                  <span>Lupa?</span>-->
+<!--                </div>-->
+<!--              </ion-item>-->
             </div>
           </ion-col>
         </ion-row>
@@ -75,19 +88,19 @@
           </ion-col>
         </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <!-- <div class="ion-text-center atau">
-              atau lebih cepat
-            </div> -->
-            <div class="ion-text-center googlebutton">
-              <ion-button expand="block" class="flex-margin" size="default">
-                <ion-icon slot="start" src="assets/icon/google.svg"></ion-icon>
-                <span>LOGIN GOOGLE</span>
-              </ion-button>
-            </div>
-          </ion-col>
-        </ion-row>
+<!--        <ion-row>-->
+<!--          <ion-col>-->
+<!--            &lt;!&ndash; <div class="ion-text-center atau">-->
+<!--              atau lebih cepat-->
+<!--            </div> &ndash;&gt;-->
+<!--            <div class="ion-text-center googlebutton">-->
+<!--              <ion-button expand="block" class="flex-margin" size="default">-->
+<!--                <ion-icon slot="start" src="assets/icon/google.svg"></ion-icon>-->
+<!--                <span>LOGIN GOOGLE</span>-->
+<!--              </ion-button>-->
+<!--            </div>-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
       </ion-grid>
     </form>
   </div>

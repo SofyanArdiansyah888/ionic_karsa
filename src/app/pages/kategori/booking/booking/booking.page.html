@@ -3,25 +3,11 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <div style="width: 100%">
-    <ion-item lines="none" class="header-title" style="margin-bottom: -10px">
-      <ion-col size="1" (click)="backClick()">
-        <ion-icon
-          class="backclik_black"
-          
-          src="assets/icon/chevron-left.svg"
-        ></ion-icon>
-      </ion-col>
-      <ion-col size="11">
-        <p class="title" style="margin: 20px 0 0px 10px">Booking</p>
-        <p style="margin: 0">
-          <span style="padding-left: 10px"
-            >Silahkan memesan sesuai jadwal yang tersedia</span
-          >
-        </p>
-      </ion-col>
-    </ion-item>
-  </div>
+  <app-base-header
+    (handleBackClick)="backClick()"
+    title="Booking"
+    description="Silahkan pesan jadwal yang tersedia">
+  </app-base-header>
 
   <div class="hw-list" style="width: 100%">
     <a href="/olahraga/singlesport">
@@ -69,9 +55,9 @@
       <div class="outer-div">
         <div class="inner-div">
           <ul id="dates">
-            <li 
-              *ngFor="let day of days" 
-              [ngClass]="{'active booked': day.booked, 'disabled': day.disabled}" 
+            <li
+              *ngFor="let day of days"
+              [ngClass]="{'active booked': day.booked, 'disabled': day.disabled}"
               (click)="!day.disabled && dateClick(day)">
               <span>{{ day.day }}</span>
               {{ day.date }}
@@ -80,7 +66,7 @@
         </div>
       </div>
     </ion-item>
-    
+
   </div>
 
   <div class="hw-jamnya" id="pilih-jam">

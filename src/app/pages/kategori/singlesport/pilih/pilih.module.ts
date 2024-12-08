@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PilihPageRoutingModule } from './pilih-routing.module';
 
 import { PilihPage } from './pilih.page';
+import {BaseHeaderComponent} from "../../../../components/base-header/base-header.component";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PilihPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        PilihPageRoutingModule,
+        BaseHeaderComponent
+    ],
   declarations: [PilihPage]
 })
 export class PilihPageModule {}

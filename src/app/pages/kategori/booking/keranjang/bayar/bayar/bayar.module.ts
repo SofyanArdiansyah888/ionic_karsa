@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { BayarPageRoutingModule } from './bayar-routing.module';
 
 import { BayarPage } from './bayar.page';
+import {BaseHeaderComponent} from "../../../../../../components/base-header/base-header.component";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BayarPageRoutingModule
+    BayarPageRoutingModule,
+    BaseHeaderComponent
   ],
   declarations: [BayarPage]
 })

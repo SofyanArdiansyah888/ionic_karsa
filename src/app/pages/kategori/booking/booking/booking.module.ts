@@ -7,15 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { BookingPageRoutingModule } from './booking-routing.module';
 
 import { BookingPage } from './booking.page';
+import {BaseHeaderComponent} from "../../../../components/base-header/base-header.component";
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    BookingPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        BookingPageRoutingModule,
+        BaseHeaderComponent
+    ],
   declarations: [BookingPage]
 })
 export class BookingPageModule {}

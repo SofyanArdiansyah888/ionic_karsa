@@ -13,3 +13,11 @@ export const isSequence = (value: string) => {
 
   return invalid;
 };
+
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+export function formatRupiah(value: number): string {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+  }).format(value);
+}
